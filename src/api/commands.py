@@ -22,11 +22,11 @@ def setup_commands(app):
             program = Programs()
             program.name = "test_program" + str(x) 
             program.description = "This is a test program"
-            program.startTime = "9AM"
-            program.endTime = "12PM"
-            program.progBarTxt = "Text goes in program bar"
-            program.progBarThurTxt = null
-            program.progBarSatTxt = null
+            program.start_time = "9AM"
+            program.end_time = "12PM"
+            program.prog_bar_txt = "Text goes in program bar"
+            program.prog_bar_thur_txt = null
+            program.prog_bar_sat_txt = null
             db.session.add(program)
             db.session.commit()
             print("Program: ", program.name, " created.")
