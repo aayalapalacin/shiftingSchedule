@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/calendar.css";
 
 function Calendar() {
   const programs = [
