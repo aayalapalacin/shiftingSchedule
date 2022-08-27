@@ -1,6 +1,6 @@
 
 import click
-from api.models import db, User
+from api.models import db, Programs
 
 """
 In this file, you can add as many commands as you want using the @app.cli.command decorator
@@ -14,19 +14,23 @@ def setup_commands(app):
     by typing: $ flask insert-test-users 5
     Note: 5 is the number of users to add
     """
-    @app.cli.command("insert-test-users") # name of our command
+    @app.cli.command("insert-test-programs") # name of our command
     @click.argument("count") # argument of out command
     def insert_test_data(count):
-        print("Creating test users")
+        print("Creating test programs")
         for x in range(1, int(count) + 1):
-            user = User()
-            user.email = "test_user" + str(x) + "@test.com"
-            user.password = "123456"
-            user.is_active = True
-            db.session.add(user)
+            program = Programs()
+            program.name = "test_program" + str(x) 
+            program.description = "This is a test program"
+            program.startTime = "9AM"
+            program.endTime = "12PM"
+            program.progBarTxt = "Text goes in program bar"
+            program.progBarThurTxt = null
+            program.progBarSatTxt = null
+            db.session.add(program)
             db.session.commit()
-            print("User: ", user.email, " created.")
+            print("Program: ", program.name, " created.")
 
-        print("All test users created")
+        print("All test programs created")
 
         ### Insert the code to populate others tables if needed
