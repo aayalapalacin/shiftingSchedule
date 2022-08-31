@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/programTabs.css";
 import Modal from "../component/modal.js"
 
@@ -42,28 +42,48 @@ function ProgramTabs() {
         "Warming center, showers, laundry and lockers. **last load of laundry must be in 1.5 hours before close, last shower is 30 min. before close",
       startEndTimeText: "Addional Services: 9am-3pm",
     },
-  ];
-  const lista = programs.map((program, index)=>{
+  ]; 
+  const list = programs.map((program, index)=>{
+    let color=""
+    if(index==0){
+      color="tab-container ms-5 me-5 p-2 bg-info"
+    }else if (index==1){
+      color="tab-container ms-5 me-5 p-2 bg-warning"
+    }else if (index==2){
+      color="tab-container ms-5 me-5 p-2 bg-secondary"
+    }else if (index==3){
+      color="tab-container ms-5 me-5 p-2 bg-danger"
+    }else if (index==4){
+      color="tab-container ms-5 me-5 p-2 bg-success"
+    }else if (index==5){
+      color="tab-container ms-5 me-5 p-2"
+    }
+    
     return (
-      <div className="d-inline-flex col-4 justify-content-around">
-    <div key={index} className="tab-container ms-5 me-5 p-2">
-      <div className="row"> 
-        <h2>{program.name}</h2>
-      </div>
-      <div className="row">
-        <span><Modal 
-          index={index}  
-          name={program.name}
-          description={program.description} />
-        </span>
+      <div key={index} className="d-inline-flex col-4 justify-content-around">
+        <div className={color}>
+          <div className="row">
+            <h2>{program.name}</h2>
+          </div>
+          <div className="row">
+            <span>
+              <Modal
+                index={index}
+                name={program.name}
+                description={program.description}
+                startEndTimeText={program.startEndTimeText}
+                startSatText={program.startSatText}
+                startThurText={program.startThurText}
+              />
+            </span>
+          </div>
         </div>
-      </div>             
-    </div>
-   )
+      </div>
+    );
   })
   return (
     <div>
-      {lista}
+      {list}
     </div>
   );
 }

@@ -2,10 +2,12 @@ import React from "react"
 
 function Modal(props){
   console.log(props)
+  let index=props.index
+  if(props.index===index){
+    
     return (
       <>
         <span
-          type="button"
           className="btn btn-link"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
@@ -14,7 +16,7 @@ function Modal(props){
         </span>
 
         <div
-          className="modal fade"
+          className="modal fade modal-letter"
           id="exampleModal"
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
@@ -33,11 +35,15 @@ function Modal(props){
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="modal-body">{props.description}</div>
+              <div className="modal-body">{props.description}
+                <div>{props.startEndTimeText}</div>
+                {props.startSatText!==undefined?<div>Saturday: {props.startSatText}</div>:<></>}
+                {props.startThurText!==undefined?<div>Thursday: {props.startThurText}</div>:<></>}  
+              </div>
               <div className="modal-footer">
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn tab-container btn-warning"
                   data-bs-dismiss="modal"
                 >
                   Close
@@ -48,4 +54,5 @@ function Modal(props){
         </div>
       </>
     );}
+  }
 export default Modal;

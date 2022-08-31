@@ -2,6 +2,9 @@
     border: 3px solid black;
     border-radius: 60px/20px;
     margin-bottom: 0.5rem;
-/*     max-height: 25%;
+/*     max-height: 50%;
     max-width: 50%; */
     }
+.modal-letter{
+    text-align: start;
+}
