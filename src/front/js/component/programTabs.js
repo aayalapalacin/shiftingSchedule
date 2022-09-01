@@ -3,6 +3,9 @@ import "../../styles/programTabs.css";
 import Modal from "../component/modal.js"
 
 function ProgramTabs() {
+  const [tempData, setTempData] = useState([]);
+
+   
   const programs = [
     {
       name: "Food Pantry: Onsite",
@@ -43,6 +46,13 @@ function ProgramTabs() {
       startEndTimeText: "Addional Services: 9am-3pm",
     },
   ]; 
+
+
+  const getData=(index,name,dedscription,startEnd,starSat,starThur)=>{
+    let tempData= [index,name,dedscription,startEnd,starSat,starThur]
+    setTempData(item => [1,...tempData])
+  }
+
   const list = programs.map((program, index)=>{
     let color=""
     if(index==0){
@@ -57,8 +67,7 @@ function ProgramTabs() {
       color="tab-container ms-5 me-5 p-2 bg-success"
     }else if (index==5){
       color="tab-container ms-5 me-5 p-2"
-    }
-    
+    }    
     return (
       <div key={index} className="d-inline-flex col-4 justify-content-around">
         <div className={color}>
@@ -67,14 +76,23 @@ function ProgramTabs() {
           </div>
           <div className="row">
             <span>
-              <Modal
-                index={index}
-                name={program.name}
-                description={program.description}
-                startEndTimeText={program.startEndTimeText}
-                startSatText={program.startSatText}
-                startThurText={program.startThurText}
-              />
+              <span
+                className="btn btn-link"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                onClick={() => {
+                  getData(
+                    program.index,
+                    program.name,
+                    program.description,
+                    program.startEndTimeText,
+                    program.startSatText,
+                    program.startThurText
+                  );
+                }}
+              >
+                Click for more info
+              </span>
             </span>
           </div>
         </div>
@@ -84,6 +102,14 @@ function ProgramTabs() {
   return (
     <div>
       {list}
+      <Modal
+      index={tempData[1]}
+      name={tempData[2]}
+      description={tempData[3]}
+      startEndTimeText={tempData[4]}
+      startSatText={tempData[5]}
+      startThurText={tempData[6]}
+       />  
     </div>
   );
 }
