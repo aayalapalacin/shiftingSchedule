@@ -48,8 +48,8 @@ function ProgramTabs() {
   ]; 
 
 
-  const getData=(index,name,dedscription,startEnd,starSat,starThur)=>{
-    let tempData= [index,name,dedscription,startEnd,starSat,starThur]
+  const getData=(index,name,description)=>{
+    let tempData= [index,name,description]
     setTempData(item => [1,...tempData])
   }
 
@@ -69,7 +69,7 @@ function ProgramTabs() {
       color="tab-container ms-2 me-2 pt-3"
     }    
     return (
-      <div key={index} className="d-inline-flex col-3 justify-content-sm-around me-1 mb-1 pb-2">
+      <div key={index} className="d-inline-flex col-3 justify-content-around me-1 mb-1 pb-1">
         <div className={color}>
           <div className="row">
             <h5>{program.name}</h5>
@@ -84,9 +84,7 @@ function ProgramTabs() {
                     program.index,
                     program.name,
                     program.description,
-                    program.startEndTimeText,
-                    program.startSatText,
-                    program.startThurText
+
                   );
                 }}
               >
@@ -104,9 +102,6 @@ function ProgramTabs() {
       index={tempData[1]}
       name={tempData[2]}
       description={tempData[3]}
-      startEndTimeText={tempData[4]}
-      startSatText={tempData[5]}
-      startThurText={tempData[6]}
        />  
     </div>
   );
