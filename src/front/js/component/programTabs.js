@@ -76,7 +76,7 @@ function ProgramTabs() {
           </div>
           <div className="row">
               <span
-                className="btn btn-link"
+                className="btn btn-link mb-2 p-0"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
                 onClick={() => {
@@ -90,7 +90,7 @@ function ProgramTabs() {
                   );
                 }}
               >
-                Click for more info
+               <h6 className="pb-5 mb-5 mt-2">Click for more info</h6> 
               </span>
           </div>
         </div>
