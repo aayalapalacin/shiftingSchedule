@@ -40,7 +40,7 @@ function Modal(props) {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn tab-container btn-warning"
+                className="btn btn-warning"
                 data-bs-dismiss="modal"
               >
                 Close

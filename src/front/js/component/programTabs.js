@@ -56,26 +56,25 @@ function ProgramTabs() {
   const list = programs.map((program, index)=>{
     let color=""
     if(index==0){
-      color="tab-container ms-5 me-5 p-2 bg-info"
+      color="tab-container ms-2 me-2 pt-3 bg-info"
     }else if (index==1){
-      color="tab-container ms-5 me-5 p-2 bg-warning"
+      color="tab-container ms-2 me-2 pt-3 bg-warning"
     }else if (index==2){
-      color="tab-container ms-5 me-5 p-2 bg-secondary"
+      color="tab-container ms-2 me-2 pt-3 bg-secondary"
     }else if (index==3){
-      color="tab-container ms-5 me-5 p-2 bg-danger"
+      color="tab-container ms-2 me-2 pt-3 bg-danger"
     }else if (index==4){
-      color="tab-container ms-5 me-5 p-2 bg-success"
+      color="tab-container ms-2 me-2 pt-3 bg-success"
     }else if (index==5){
-      color="tab-container ms-5 me-5 p-2"
+      color="tab-container ms-2 me-2 pt-3"
     }    
     return (
-      <div key={index} className="d-inline-flex col-4 justify-content-around">
+      <div key={index} className="d-inline-flex col-3 justify-content-sm-around me-1 mb-1 pb-2">
         <div className={color}>
           <div className="row">
-            <h2>{program.name}</h2>
+            <h5>{program.name}</h5>
           </div>
           <div className="row">
-            <span>
               <span
                 className="btn btn-link"
                 data-bs-toggle="modal"
@@ -93,7 +92,6 @@ function ProgramTabs() {
               >
                 Click for more info
               </span>
-            </span>
           </div>
         </div>
       </div>
