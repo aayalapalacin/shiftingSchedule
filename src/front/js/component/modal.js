@@ -6,7 +6,8 @@ function Modal(props) {
  if(newLine==undefined){
   console.log("hi")
  }else if(newLine.includes("**")){
-  
+ let text= newLine.replace("**", '\n')
+ console.log(text)
  }
 
 
@@ -36,7 +37,9 @@ function Modal(props) {
               ></button>
             </div>
             <div className="modal-body">
-              {props.description}
+              {props.description===undefined?<>...Loading</>:props.description.replace("Warming center, showers, laundry and lockers. **last load of laundry must be in 1.5 hours before close, last shower is 30 min. before close",((x)=>{
+                return "Warming center, showers, laundry and lockers."+"\n"+"Last load of laundry must be in 1.5 hours before close, last shower is 30 min. before close."
+              }) )}
             </div>
             <div className="modal-footer">
               <button
@@ -58,7 +61,4 @@ Modal.propTypes = {
   index: PropTypes.number,
   name: PropTypes.string,
   description: PropTypes.string,
-  startEndTimeText: PropTypes.string,
-  startSatText: PropTypes.string,
-  startThurText: PropTypes.string,
 }
