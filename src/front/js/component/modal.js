@@ -2,13 +2,14 @@ import React from "react"
 import PropTypes from 'prop-types';
 
 function Modal(props) {
- let newLine = props.description
- if(newLine==undefined){
-  console.log("hi")
- }else if(newLine.includes("**")){
- let text= newLine.replace("**", '\n')
- console.log(text)
+ let newLine = props.description;
+ if (newLine == undefined) {
+ } else if (newLine.includes("**")) {
+   var text = newLine.split("**", 2);
+   var last=text[1].replace("last", "Last");
+   var finalDescription=`<div>${text[0]}</div>`+`<div>${last}</div>`
  }
+
 
 
 
@@ -37,9 +38,7 @@ function Modal(props) {
               ></button>
             </div>
             <div className="modal-body">
-              {props.description===undefined?<>...Loading</>:props.description.replace("Warming center, showers, laundry and lockers. **last load of laundry must be in 1.5 hours before close, last shower is 30 min. before close",((x)=>{
-                return "Warming center, showers, laundry and lockers."+"\n"+"Last load of laundry must be in 1.5 hours before close, last shower is 30 min. before close."
-              }) )}
+              {props.description!==undefined?props.description:props.description!==undefined?finalDescription:finalDescription}
             </div>
             <div className="modal-footer">
               <button

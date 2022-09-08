@@ -45,7 +45,13 @@ function ProgramTabs() {
         "Warming center, showers, laundry and lockers. **last load of laundry must be in 1.5 hours before close, last shower is 30 min. before close",
       startEndTimeText: "Addional Services: 9am-3pm",
     },
-  ]; 
+  ];
+  
+/*   console.log(programs[5].description) */
+/*   let newDescription=programs[5].description
+  let text=newDescription.split("**",2)
+  text[1].replace("last", "Last")
+  console.log(text) */
 
 
   const getData=(index,name,description)=>{
@@ -56,40 +62,43 @@ function ProgramTabs() {
   const list = programs.map((program, index)=>{
     let color=""
     if(index==0){
-      color="tab-container ms-2 me-2 pt-3 bg-info"
+      color="tab-container ms-2 me-2 pt-3 bg-primary"
     }else if (index==1){
-      color="tab-container ms-2 me-2 pt-3 bg-warning"
+      color="tab-container ms-2 me-2 pt-3 bg-danger"
     }else if (index==2){
       color="tab-container ms-2 me-2 pt-3 bg-secondary"
     }else if (index==3){
-      color="tab-container ms-2 me-2 pt-3 bg-danger"
+      color="tab-container ms-2 me-2 pt-3 bg-info"
     }else if (index==4){
-      color="tab-container ms-2 me-2 pt-3 bg-success"
+      color="tab-container ms-2 me-2 pt-3 bg-warning"
     }else if (index==5){
-      color="tab-container ms-2 me-2 pt-3"
+      color="tab-container ms-2 me-2 pt-3 bg-success"
     }    
     return (
-      <div key={index} className="d-inline-flex col-3 justify-content-around me-1 mb-1 pb-1">
+      <div
+        role="button"
+        onClick={() => {
+          getData(program.index, program.name, program.description);
+        }}
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        key={index}
+        className="d-inline-flex col-3 justify-content-around me-1 mb-1 pb-1"
+      >
         <div className={color}>
           <div className="row">
             <h5>{program.name}</h5>
           </div>
           <div className="row">
-              <span
-                className="btn btn-link mb-2 pt-2 pb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                onClick={() => {
-                  getData(
-                    program.index,
-                    program.name,
-                    program.description,
-
-                  );
-                }}
-              >
-               <h6 className="pb-5 mb-5 mt-2">Click for more info</h6> 
-              </span>
+            <span
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              onClick={() => {
+                getData(program.index, program.name, program.description);
+              }}
+            >
+              <p className="pb-5 mb-5 mt-2">Click for more info</p>
+            </span>
           </div>
         </div>
       </div>
