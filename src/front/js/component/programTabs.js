@@ -45,54 +45,55 @@ function ProgramTabs() {
         "Warming center, showers, laundry and lockers. **last load of laundry must be in 1.5 hours before close, last shower is 30 min. before close",
       startEndTimeText: "Addional Services: 9am-3pm",
     },
-  ]; 
+  ];
+  
 
 
-  const getData=(index,name,dedscription,startEnd,starSat,starThur)=>{
-    let tempData= [index,name,dedscription,startEnd,starSat,starThur]
+  const getData=(index,name,description)=>{
+    let tempData= [index,name,description]
     setTempData(item => [1,...tempData])
   }
 
   const list = programs.map((program, index)=>{
     let color=""
     if(index==0){
-      color="tab-container ms-5 me-5 p-2 bg-info"
+      color="tab-container pt-3 bg-primary"
     }else if (index==1){
-      color="tab-container ms-5 me-5 p-2 bg-warning"
+      color="tab-container pt-3 bg-danger"
     }else if (index==2){
-      color="tab-container ms-5 me-5 p-2 bg-secondary"
+      color="tab-container pt-3 bg-secondary"
     }else if (index==3){
-      color="tab-container ms-5 me-5 p-2 bg-danger"
+      color="tab-container pt-3 bg-info"
     }else if (index==4){
-      color="tab-container ms-5 me-5 p-2 bg-success"
+      color="tab-container pt-3 bg-warning"
     }else if (index==5){
-      color="tab-container ms-5 me-5 p-2"
-    }    
+      color="tab-container pt-3 bg-success"
+    }
+    
+    let marginClick=""
+    if(index==4){
+      marginClick="mt-1"
+    }else {
+      marginClick="mt-4"
+    }
+
     return (
-      <div key={index} className="d-inline-flex col-4 justify-content-around">
+      <div
+        onClick={() => {
+          getData(program.index, program.name, program.description);
+        }}
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        key={index}
+        className="d-inline-flex col-3 justify-content-around me-1 mb-2"
+      >
         <div className={color}>
           <div className="row">
-            <h2>{program.name}</h2>
+            <h5>{program.name}</h5>
           </div>
           <div className="row">
-            <span>
-              <span
-                className="btn btn-link"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                onClick={() => {
-                  getData(
-                    program.index,
-                    program.name,
-                    program.description,
-                    program.startEndTimeText,
-                    program.startSatText,
-                    program.startThurText
-                  );
-                }}
-              >
-                Click for more info
-              </span>
+            <span className={marginClick} >
+              <p>Click for more info</p>
             </span>
           </div>
         </div>
@@ -106,9 +107,6 @@ function ProgramTabs() {
       index={tempData[1]}
       name={tempData[2]}
       description={tempData[3]}
-      startEndTimeText={tempData[4]}
-      startSatText={tempData[5]}
-      startThurText={tempData[6]}
        />  
     </div>
   );

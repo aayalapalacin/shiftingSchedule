@@ -1,6 +1,17 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
 function Modal(props) {
+ let newLine = props.description;
+ if (newLine == undefined) {
+ } else if (newLine.includes("**")) {
+   var text = newLine.split("**", 2);
+   var first= text[0]
+   var last=text[1].replace("last", "Last");
+   newLine=first
+ }
+ 
+
   return (
     <>
       <div
@@ -24,23 +35,12 @@ function Modal(props) {
               ></button>
             </div>
             <div className="modal-body">
-              {props.description}
-              <div>{props.startEndTimeText}</div>
-              {props.startSatText !== undefined ? (
-                <div>Saturday: {props.startSatText}</div>
-              ) : (
-                <></>
-              )}
-              {props.startThurText !== undefined ? (
-                <div>Thursday: {props.startThurText}</div>
-              ) : (
-                <></>
-              )}
+              {newLine?newLine:"...Loading"}<br/>{last}
             </div>
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn tab-container btn-warning"
+                className="btn btn-warning"
                 data-bs-dismiss="modal"
               >
                 Close
@@ -52,4 +52,9 @@ function Modal(props) {
     </>
   );
 }
-export default Modal;  
+export default Modal;
+Modal.propTypes = {
+  index: PropTypes.number,
+  name: PropTypes.string,
+  description: PropTypes.string,
+}
