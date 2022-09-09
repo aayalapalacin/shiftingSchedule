@@ -47,11 +47,6 @@ function ProgramTabs() {
     },
   ];
   
-/*   console.log(programs[5].description) */
-/*   let newDescription=programs[5].description
-  let text=newDescription.split("**",2)
-  text[1].replace("last", "Last")
-  console.log(text) */
 
 
   const getData=(index,name,description)=>{
@@ -62,42 +57,43 @@ function ProgramTabs() {
   const list = programs.map((program, index)=>{
     let color=""
     if(index==0){
-      color="tab-container ms-2 me-2 pt-3 bg-primary"
+      color="tab-container pt-3 bg-primary"
     }else if (index==1){
-      color="tab-container ms-2 me-2 pt-3 bg-danger"
+      color="tab-container pt-3 bg-danger"
     }else if (index==2){
-      color="tab-container ms-2 me-2 pt-3 bg-secondary"
+      color="tab-container pt-3 bg-secondary"
     }else if (index==3){
-      color="tab-container ms-2 me-2 pt-3 bg-info"
+      color="tab-container pt-3 bg-info"
     }else if (index==4){
-      color="tab-container ms-2 me-2 pt-3 bg-warning"
+      color="tab-container pt-3 bg-warning"
     }else if (index==5){
-      color="tab-container ms-2 me-2 pt-3 bg-success"
-    }    
+      color="tab-container pt-3 bg-success"
+    }
+    
+    let marginClick=""
+    if(index==4){
+      marginClick="mt-1"
+    }else {
+      marginClick="mt-4"
+    }
+
     return (
       <div
-        role="button"
         onClick={() => {
           getData(program.index, program.name, program.description);
         }}
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         key={index}
-        className="d-inline-flex col-3 justify-content-around me-1 mb-1 pb-1"
+        className="d-inline-flex col-3 justify-content-around me-1 mb-2"
       >
         <div className={color}>
           <div className="row">
             <h5>{program.name}</h5>
           </div>
           <div className="row">
-            <span
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              onClick={() => {
-                getData(program.index, program.name, program.description);
-              }}
-            >
-              <p className="pb-5 mb-5 mt-2">Click for more info</p>
+            <span className={marginClick} >
+              <p>Click for more info</p>
             </span>
           </div>
         </div>

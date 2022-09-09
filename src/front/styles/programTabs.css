@@ -5,6 +5,7 @@
     border-radius: 75px/30px;
     width: 14rem;
     height: 7rem;
+    cursor: pointer;
 }
 .modal-letter {
   text-align: start;

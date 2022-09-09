@@ -6,14 +6,11 @@ function Modal(props) {
  if (newLine == undefined) {
  } else if (newLine.includes("**")) {
    var text = newLine.split("**", 2);
+   var first= text[0]
    var last=text[1].replace("last", "Last");
-   var finalDescription=`<div>${text[0]}</div>`+`<div>${last}</div>`
+   newLine=first
  }
-
-
-
-
-  
+ 
 
   return (
     <>
@@ -38,7 +35,7 @@ function Modal(props) {
               ></button>
             </div>
             <div className="modal-body">
-              {props.description!==undefined?props.description:props.description!==undefined?finalDescription:finalDescription}
+              {newLine?newLine:"...Loading"}<br/>{last}
             </div>
             <div className="modal-footer">
               <button
