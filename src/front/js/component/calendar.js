@@ -1,7 +1,11 @@
-import React from "react";
-import "../../styles/calendar.css";
-
+import React, { useEffect } from "react";
+import { Context } from "../store/appContext";
+import { useContext } from "react";
 function Calendar() {
+  const { store, actions } = useContext(Context);
+  console.log("store", store.programs[1]);
+  let programObj = store.programs[1]?.name;
+  console.log(programObj);
   const programs = [
     {
       name: "Food Pantry: Onsite",
@@ -45,52 +49,52 @@ function Calendar() {
 
   const start10am = () => {
     return (
-      <div classname="10am" style={{ fontSize: "13px", width: "10%" }}></div>
+      <div className="10am" style={{ fontSize: "13px", width: "10%" }}></div>
     );
   };
   const start11am = () => {
     return (
-      <div classname="11am" style={{ fontSize: "13px", width: "20%" }}></div>
+      <div className="11am" style={{ fontSize: "13px", width: "20%" }}></div>
     );
   };
   const start12pm = () => {
     return (
-      <div classname="12pm" style={{ fontSize: "13px", width: "30.8%" }}></div>
+      <div className="12pm" style={{ fontSize: "13px", width: "30.8%" }}></div>
     );
   };
   const start1pm = () => {
     return (
-      <div classname="1pm" style={{ fontSize: "13px", width: "40%" }}></div>
+      <div className="1pm" style={{ fontSize: "13px", width: "40%" }}></div>
     );
   };
   const start2pm = () => {
     return (
-      <div classname="2pm" style={{ fontSize: "13px", width: "49%" }}></div>
+      <div className="2pm" style={{ fontSize: "13px", width: "49%" }}></div>
     );
   };
   const start3pm = () => {
     return (
-      <div classname="3pm" style={{ fontSize: "13px", width: "58%" }}></div>
+      <div className="3pm" style={{ fontSize: "13px", width: "58%" }}></div>
     );
   };
   const start4pm = () => {
     return (
-      <div classname="4pm" style={{ fontSize: "13px", width: "67%" }}></div>
+      <div className="4pm" style={{ fontSize: "13px", width: "67%" }}></div>
     );
   };
   const start5pm = () => {
     return (
-      <div classname="5pm" style={{ fontSize: "13px", width: "75%" }}></div>
+      <div className="5pm" style={{ fontSize: "13px", width: "75%" }}></div>
     );
   };
   const start6pm = () => {
     return (
-      <div classname="6pm" style={{ fontSize: "13px", width: "84%" }}></div>
+      <div className="6pm" style={{ fontSize: "13px", width: "84%" }}></div>
     );
   };
   const start7pm = () => {
     return (
-      <div classname="7pm" style={{ fontSize: "13px", width: "92%" }}></div>
+      <div className="7pm" style={{ fontSize: "13px", width: "92%" }}></div>
     );
   };
 
@@ -343,7 +347,7 @@ function Calendar() {
           </tr>
           <tr>
             <th scope="row">Sat</th>
-            <td colspan="11">
+            <td colSpan="11">
               <div className="d-flex">
                 <div
                   className="bg-info PantryOnsiteSaturday mb-1"
