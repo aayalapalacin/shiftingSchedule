@@ -1,6 +1,10 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import useStore from "../store/flux";
+import { Context } from "../store/appContext";
+import { useContext } from "react";
 function Calendar() {
+  const { store, actions } = useContext(Context);
+  console.log("store", store.programs);
   const programs = [
     {
       name: "Food Pantry: Onsite",
