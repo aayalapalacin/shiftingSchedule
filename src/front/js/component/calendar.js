@@ -100,10 +100,12 @@ function Calendar() {
 
   return (
     <div>
+      <div className="bg-primary col-3 PantryOnsite ">
+        {programs[0].startEndTimeText}
+      </div>
       <table className="table table-bordered ">
         <thead>
           <tr>
-            <th scope="col"></th>
             <th scope="col">9AM-10AM</th>
             <th scope="col">10AM-11AM</th>
             <th scope="col">11AM-12PM</th>
@@ -119,252 +121,83 @@ function Calendar() {
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Mon</th>
-            <td colSpan="11">
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-primary col-3 PantryOnsite "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[0].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                <div
-                  className="bg-danger PantryCurb "
-                  style={{
-                    fontSize: "13px",
-                    position: "absolute",
-                    left: "59.5%",
-                    width: "8%",
-                  }}
-                >
-                  {programs[1].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-secondary col-3 CommunityMeals my-1 "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[2].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-warning col-3 mb-1 FreshProduce "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[4].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                <div
-                  className="bg-success addionalServices"
-                  style={{ fontSize: "13px", width: "57%" }}
-                >
-                  {programs[5].startEndTimeText}
-                </div>
-              </div>
-            </td>
+            <th scope="row"></th>
+
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <th scope="row">Tue</th>
-            <td colSpan="11">
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-primary col-3 PantryOnsite "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[0].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                <div
-                  className="bg-danger PantryCurb "
-                  style={{
-                    fontSize: "13px",
-                    position: "absolute",
-                    left: "59.5%",
-                    width: "8%",
-                  }}
-                >
-                  {programs[1].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-secondary col-3 CommunityMeals my-1 "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[2].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-warning col-3 mb-1 FreshProduce "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[4].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                <div
-                  className="bg-success addionalServices"
-                  style={{ fontSize: "13px", width: "57%" }}
-                >
-                  {programs[5].startEndTimeText}
-                </div>
-              </div>
-            </td>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <th scope="row">Wed</th>
-            <td colSpan="11">
-              <div className="d-flex">
-                {start1pm()}
-                <div
-                  className="bg-info MobileFood "
-                  style={{ fontSize: "13px", width: "10.333333%" }}
-                >
-                  {programs[3].startEndTimeText}
-                </div>
-              </div>
-            </td>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <th scope="row">Thur</th>
-            <td colSpan="11">
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-primary col-3 PantryOnsite "
-                  style={{ fontSize: "13px", width: "61.5%" }}
-                >
-                  {programs[0].startThurText}
-                </div>
-              </div>
-              <div className="d-flex">
-                <div
-                  className="bg-danger PantryCurb "
-                  style={{
-                    fontSize: "13px",
-                    position: "absolute",
-                    left: "59.5%",
-                    width: "32.51%",
-                    marginTop: ".3%",
-                  }}
-                >
-                  {programs[1].startThurText}
-                </div>
-              </div>
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-secondary col-3 CommunityMeals my-1 "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[2].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-warning col-3 mb-1 FreshProduce "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[4].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                <div
-                  className="bg-success addionalServices"
-                  style={{ fontSize: "13px", width: "57%" }}
-                >
-                  {programs[5].startEndTimeText}
-                </div>
-              </div>
-            </td>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <th scope="row">Fri</th>
-            <td colSpan="11">
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-primary col-3 PantryOnsite "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[0].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                <div
-                  className="bg-danger PantryCurb "
-                  style={{
-                    fontSize: "13px",
-                    position: "absolute",
-                    left: "59.5%",
-                    width: "8%",
-                  }}
-                >
-                  {programs[1].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-secondary col-3 CommunityMeals my-1 "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[2].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                {start12pm()}
-                <div
-                  className="bg-warning col-3 mb-1 FreshProduce "
-                  style={{ fontSize: "13px", width: "26.2%" }}
-                >
-                  {programs[4].startEndTimeText}
-                </div>
-              </div>
-              <div className="d-flex">
-                <div
-                  className="bg-success addionalServices"
-                  style={{ fontSize: "13px", width: "57%" }}
-                >
-                  {programs[5].startEndTimeText}
-                </div>
-              </div>
-            </td>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <th scope="row">Sat</th>
-            <td colSpan="11">
-              <div className="d-flex">
-                <div
-                  className="bg-info PantryOnsiteSaturday mb-1"
-                  style={{ fontSize: "13px", width: "30.4%" }}
-                >
-                  {programs[0].startSatText}
-                </div>
-              </div>
-              <div className="d-flex">
-                <div
-                  className="bg-warning PantryCrubSaturday"
-                  style={{ fontSize: "13px", width: "30.4%" }}
-                >
-                  {programs[1].startSatText}
-                </div>
-              </div>
-            </td>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
         </tbody>
       </table>

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "../../styles/programTabs.css";
-import Modal from "../component/modal.js"
+import Modal from "../component/modal.js";
 
 function ProgramTabs() {
   const [tempData, setTempData] = useState([]);
 
-   
   const programs = [
     {
       name: "Food Pantry: Onsite",
@@ -45,31 +44,30 @@ function ProgramTabs() {
         "Warming center, showers, laundry and lockers. **last load of laundry must be in 1.5 hours before close, last shower is 30 min. before close",
       startEndTimeText: "Addional Services: 9am-3pm",
     },
-  ]; 
+  ];
 
+  const getData = (index, name, dedscription, startEnd, starSat, starThur) => {
+    let tempData = [index, name, dedscription, startEnd, starSat, starThur];
+    setTempData((item) => [1, ...tempData]);
+  };
 
-  const getData=(index,name,dedscription,startEnd,starSat,starThur)=>{
-    let tempData= [index,name,dedscription,startEnd,starSat,starThur]
-    setTempData(item => [1,...tempData])
-  }
-
-  const list = programs.map((program, index)=>{
-    let color=""
-    if(index==0){
-      color="tab-container ms-5 me-5 p-2 bg-info"
-    }else if (index==1){
-      color="tab-container ms-5 me-5 p-2 bg-warning"
-    }else if (index==2){
-      color="tab-container ms-5 me-5 p-2 bg-secondary"
-    }else if (index==3){
-      color="tab-container ms-5 me-5 p-2 bg-danger"
-    }else if (index==4){
-      color="tab-container ms-5 me-5 p-2 bg-success"
-    }else if (index==5){
-      color="tab-container ms-5 me-5 p-2"
-    }    
+  const list = programs.map((program, index) => {
+    let color = "";
+    if (index == 0) {
+      color = "tab-container ms-5 me-5 p-2 bg-info";
+    } else if (index == 1) {
+      color = "tab-container ms-5 me-5 p-2 bg-warning";
+    } else if (index == 2) {
+      color = "tab-container ms-5 me-5 p-2 bg-secondary";
+    } else if (index == 3) {
+      color = "tab-container ms-5 me-5 p-2 bg-danger";
+    } else if (index == 4) {
+      color = "tab-container ms-5 me-5 p-2 bg-success";
+    } else if (index == 5) {
+      color = "tab-container ms-5 me-5 p-2";
+    }
     return (
-      <div key={index} className="d-inline-flex col-4 justify-content-around">
+      <div key={index} className="d-inline-flex col-4 justify-content-around ">
         <div className={color}>
           <div className="row">
             <h2>{program.name}</h2>
@@ -98,18 +96,18 @@ function ProgramTabs() {
         </div>
       </div>
     );
-  })
+  });
   return (
     <div>
       {list}
       <Modal
-      index={tempData[1]}
-      name={tempData[2]}
-      description={tempData[3]}
-      startEndTimeText={tempData[4]}
-      startSatText={tempData[5]}
-      startThurText={tempData[6]}
-       />  
+        index={tempData[1]}
+        name={tempData[2]}
+        description={tempData[3]}
+        startEndTimeText={tempData[4]}
+        startSatText={tempData[5]}
+        startThurText={tempData[6]}
+      />
     </div>
   );
 }
