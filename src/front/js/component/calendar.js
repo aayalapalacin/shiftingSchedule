@@ -1,6 +1,11 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { Context } from "../store/appContext";
+import { useContext } from "react";
 function Calendar() {
+  const { store, actions } = useContext(Context);
+  console.log("store", store.programs[1]);
+  let programObj = store.programs[1]?.name;
+  console.log(programObj);
   const programs = [
     {
       name: "Food Pantry: Onsite",

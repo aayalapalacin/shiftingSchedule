@@ -6,6 +6,7 @@ import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 
 import { Footer } from "./component/footer";
+import Input from "./component/input";
 
 //create your first component
 const Layout = () => {
@@ -19,6 +20,7 @@ const Layout = () => {
         <ScrollToTop>
           <Routes>
             <Route element={<Home />} path="/" />
+            <Route element={<Input />} path="/input" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />
