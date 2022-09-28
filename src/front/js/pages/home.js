@@ -1,16 +1,19 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import Calendar from "../component/calendar";
+import Calendar from "./calendar";
 import ProgramTabs from "../component/programTabs";
-
-export const Home = () => {
+import ProgramDivs from "../component/programDivs";
+export const Home = (props) => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="text-center mt-5">
+    <div className="text-center m-5 parentDiv border border-dark">
       <ProgramTabs />
       <Calendar />
+      {/* {store.programs.map((item, index) => {
+        return <ProgramDivs data={item} key={index} />;
+      })} */}
     </div>
   );
 };
