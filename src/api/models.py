@@ -5,7 +5,7 @@ db = SQLAlchemy()
 class Programs(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
-    description = db.Column(db.String(120), unique=False, nullable=False)
+    description = db.Column(db.String(200), unique=False, nullable=False)
     start_time = db.Column(db.String(10), unique=False, nullable=False)
     end_time = db.Column(db.String(10), unique=False, nullable=False)
     prog_bar_txt = db.Column(db.String(50), unique=False, nullable=False)
