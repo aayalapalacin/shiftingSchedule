@@ -3,9 +3,23 @@ import { Context } from "../store/appContext";
 import { useContext } from "react";
 function Calendar() {
   const { store, actions } = useContext(Context);
-  console.log("store", store.programs[1]);
-  let programObj = store.programs[1]?.name;
-  console.log(programObj);
+  console.log("store", store.programs);
+  let startTime = store.programs[0]?.start_time;
+  let endTime = store.programs[0]?.end_time;
+
+  let startTimeNum = parseInt(startTime?.replace(/\D/g, ""));
+  let endTimeNum = parseInt(endTime?.replace(/\D/g, ""));
+  let totalHoursNormal = endTimeNum - startTimeNum;
+  let totalAmPmHours = endTimeNum + 12 - startTimeNum;
+  // if(startTme == "12PM"){
+  // totalhours({"name": store.programs[i]?.name, "total_hours": endTimeNum})
+  // }
+  // else if(startTme.includes("AM") && endTime.includes("PM")){
+  // totalhours({"name": store.programs[i]?.name, "total_hours": totalAmPmHours })
+  // }
+  // else{
+  //   totalhours({"name": store.programs[i]?.name, "total_hours": totalHoursNormal})
+  // }
   const programs = [
     {
       name: "Food Pantry: Onsite",
