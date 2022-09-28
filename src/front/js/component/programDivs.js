@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 // const start10am = () => {
 //   return (
@@ -37,35 +37,52 @@ import PropTypes from "prop-types";
 //   return <div className="7pm" style={{ fontSize: "13px", width: "92%" }}></div>;
 // };
 function ProgramDivs(props) {
-  // //   const [totalHours, setTotalHours] = useState({});
-  // //   let startTimeNum = parseInt(startTime?.replace(/\D/g, ""));
-  // //   let endTimeNum = parseInt(endTime?.replace(/\D/g, ""));
-  // //   let totalHoursNormal = endTimeNum - startTimeNum;
-  // //   let totalAmPmHours = endTimeNum + 12 - startTimeNum;
-  // //   if (program?.start_time == "12PM") {
-  // //     useEffect(() => {
-  // //       setTotalHours({ name: program?.name, total_hours: endTimeNum });
-  // //     }, []);
-  // //   } else if (
-  // //     program?.start_time.includes("AM") &&
-  // //     program?.end_time.includes("PM")
-  // //   ) {
-  // //     useEffect(() => {
-  // //       setTotalHours({
-  // //         name: program?.name,
-  // //         total_hours: totalAmPmHours,
-  // //       });
-  // //     }, []);
-  // //   } else {
-  // //     useEffect(() => {
-  // //       setTotalHours({
-  // //         name: program?.name,
-  // //         total_hours: totalHoursNormal,
-  // //       });
-  // //     }, []);
-  //   }
+  const [totalHours, setTotalHours] = useState([]);
+  let startTimeNum = parseInt(props.data?.start_time?.replace(/\D/g, ""));
+  let endTimeNum = parseInt(props.data?.end_time?.replace(/\D/g, ""));
+  let totalHoursNormal = endTimeNum - startTimeNum;
+  let totalAmPmHours = endTimeNum + 12 - startTimeNum;
+  if (props.data?.start_time == "12PM") {
+    useEffect(() => {
+      setTotalHours({
+        name: props.data?.name,
+        total_hours: endTimeNum,
+        id: props.data?.id,
+      });
+    }, []);
+  } else if (
+    props.data?.start_time.includes("AM") &&
+    props.data?.end_time.includes("PM")
+  ) {
+    useEffect(() => {
+      setTotalHours({
+        name: props.data?.name,
+        total_hours: totalAmPmHours,
+        id: props.data?.id,
+      });
+    }, []);
+  } else {
+    useEffect(() => {
+      setTotalHours({
+        name: props.data?.name,
+        total_hours: totalHoursNormal,
+        id: props.data?.id,
+      });
+    }, []);
+  }
+  console.log("props", props);
+  console.log("total hours", totalHours);
+  const totalHoursRender = () => {
+    if (props.data?.id == totalHours.id) {
+      return totalHours.total_hours;
+    }
+  };
 
-  return <div>{props.data?.name}</div>;
+  return (
+    <div>
+      {props.data?.name} total hours are : {totalHoursRender()}
+    </div>
+  );
 }
 
 ProgramDivs.propTypes = {
