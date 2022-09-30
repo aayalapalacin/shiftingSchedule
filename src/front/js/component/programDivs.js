@@ -40,6 +40,12 @@ function ProgramDivs(props) {
   const [totalHours, setTotalHours] = useState([]);
   let startTimeNum = parseInt(props.data?.start_time?.replace(/\D/g, ""));
   let endTimeNum = parseInt(props.data?.end_time?.replace(/\D/g, ""));
+  let startThurTimeNum = parseInt(
+    props.data?.thur_start_time?.replace(/\D/g, "")
+  );
+  let endThurTimeNum = parseInt(props.data?.thur_end_time?.replace(/\D/g, ""));
+  console.log("thur start", startThurTimeNum);
+  console.log("thur end", endThurTimeNum);
   let totalHoursNormal = endTimeNum - startTimeNum;
   let totalAmPmHours = endTimeNum + 12 - startTimeNum;
   if (props.data?.start_time == "12PM") {
@@ -70,8 +76,6 @@ function ProgramDivs(props) {
       });
     }, []);
   }
-  console.log("props", props);
-  console.log("total hours", totalHours);
   const totalHoursRender = () => {
     if (props.data?.id == totalHours.id) {
       return totalHours.total_hours;

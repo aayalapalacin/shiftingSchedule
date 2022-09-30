@@ -24,7 +24,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       getProgram: async () => {
         try {
           // fetching data from the backend
-          const resp = await fetch(process.env.BACKEND_URL + "/api/programs");
+          const resp = await fetch(
+            "https://3001-aayalapalac-shiftingsch-2llvgas3wvb.ws-us69.gitpod.io/api/programs/"
+          );
           const data = await resp.json();
           console.log("data", data);
           setStore({ programs: data });
