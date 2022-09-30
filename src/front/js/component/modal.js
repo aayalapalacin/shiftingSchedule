@@ -40,7 +40,8 @@ function Modal(props) {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-warning"
+                className="btn" 
+                style={{backgroundColor:"#fbb"+442}}
                 data-bs-dismiss="modal"
               >
                 Close
