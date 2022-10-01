@@ -84,19 +84,151 @@ function ProgramDivs(props) {
       props.data?.thur_start_time.includes("AM") &&
       props.data?.thur_end_time.includes("PM")
     ) {
-      if (props.data?.thur_start_time.includes("30")) {
+      if (
+        props.data?.thur_start_time.includes("30") &&
+        props.data?.thur_end_time.includes("30")
+      ) {
+        if (props.data?.thur_end_time.includes("12:30")) {
+          let startThurTimeNum = parseFloat(
+            props.data?.thur_start_time?.replace(/\D/g, "").replace("30", ".5")
+          );
+          let endThurTimeNum = parseFloat(
+            props.data?.thur_end_time.replace(/\D/g, "").replace("30", ".5")
+          );
+          let totalThurAmPmHours = endThurTimeNum - startThurTimeNum;
+          useEffect(() => {
+            setTotalThurHours({
+              name: props.data?.name,
+              total_thur_hours: totalThurAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        } else {
+          let startThurTimeNum = parseFloat(
+            props.data?.thur_start_time?.replace(/\D/g, "").replace("30", ".5")
+          );
+          let endThurTimeNum = parseFloat(
+            props.data?.thur_end_time.replace(/\D/g, "").replace("30", ".5")
+          );
+          let totalThurAmPmHours = endThurTimeNum + 12 - startThurTimeNum;
+          useEffect(() => {
+            setTotalThurHours({
+              name: props.data?.name,
+              total_thur_hours: totalThurAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        }
+      } else if (props.data?.thur_start_time.includes("30")) {
+        if (props.data?.thur_end_time == "12PM") {
+          let startThurTimeNum = parseFloat(
+            props.data?.thur_start_time?.replace(/\D/g, "").replace("30", ".5")
+          );
+          let endThurTimeNum = parseInt(
+            props.data?.thur_end_time.replace(/\D/g, "")
+          );
+          let totalThurAmPmHours = endThurTimeNum - startThurTimeNum;
+          useEffect(() => {
+            setTotalThurHours({
+              name: props.data?.name,
+              total_thur_hours: totalThurAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        } else {
+          let startThurTimeNum = parseFloat(
+            props.data?.thur_start_time?.replace(/\D/g, "").replace("30", ".5")
+          );
+          let endThurTimeNum = parseInt(
+            props.data?.thur_end_time.replace(/\D/g, "")
+          );
+          let totalThurAmPmHours = endThurTimeNum + 12 - startThurTimeNum;
+          useEffect(() => {
+            setTotalThurHours({
+              name: props.data?.name,
+              total_thur_hours: totalThurAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        }
+      } else if (props.data?.thur_end_time.includes("30")) {
+        if (props.data?.thur_end_time == "12:30PM") {
+          let startThurTimeNum = parseInt(
+            props.data?.thur_start_time?.replace(/\D/g, "")
+          );
+          let endThurTimeNum = parseFloat(
+            props.data?.thur_end_time.replace(/\D/g, "").replace("30", ".5")
+          );
+          let totalThurAmPmHours = endThurTimeNum - startThurTimeNum;
+          useEffect(() => {
+            setTotalThurHours({
+              name: props.data?.name,
+              total_thur_hours: totalThurAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        } else {
+          let startThurTimeNum = parseInt(
+            props.data?.thur_start_time?.replace(/\D/g, "")
+          );
+          let endThurTimeNum = parseFloat(
+            props.data?.thur_end_time.replace(/\D/g, "").replace("30", ".5")
+          );
+          let totalThurAmPmHours = endThurTimeNum + 12 - startThurTimeNum;
+          useEffect(() => {
+            setTotalThurHours({
+              name: props.data?.name,
+              total_thur_hours: totalThurAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        }
+      } else if (props.data?.thur_end_time == "12PM") {
+        let startThurTimeNum = parseInt(
+          props.data?.thur_start_time?.replace(/\D/g, "")
+        );
+        let endThurTimeNum = parseInt(
+          props.data?.thur_end_time.replace(/\D/g, "")
+        );
+        let totalThurAmPmHours = endThurTimeNum - startThurTimeNum;
+        useEffect(() => {
+          setTotalThurHours({
+            name: props.data?.name,
+            total_thur_hours: totalThurAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
+      } else {
+        let startThurTimeNum = parseInt(
+          props.data?.thur_start_time?.replace(/\D/g, "")
+        );
+        let endThurTimeNum = parseInt(
+          props.data?.thur_end_time.replace(/\D/g, "")
+        );
+        let totalThurAmPmHours = endThurTimeNum + 12 - startThurTimeNum;
+        useEffect(() => {
+          setTotalThurHours({
+            name: props.data?.name,
+            total_thur_hours: totalThurAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
       }
-      let startThurTimeNum = parseInt(
-        props.data?.thur_start_time?.replace(/\D/g, "")
+    } else if (
+      props.data?.thur_start_time.includes("30") &&
+      props.data?.thur_end_time.includes("30")
+    ) {
+      let startThurTimeNum = parseFloat(
+        props.data?.thur_start_time?.replace(/\D/g, "").replace("30", ".5")
       );
-      let endThurTimeNum = parseInt(
-        props.data?.thur_end_time.replace(/\D/g, "")
+      let endThurTimeNum = parseFloat(
+        props.data?.thur_end_time.replace(/\D/g, "").replace("30", ".5")
       );
-      let totalThurAmPmHours = endThurTimeNum + 12 - startThurTimeNum;
+      let totalThurHoursNormal = endThurTimeNum - startThurTimeNum;
       useEffect(() => {
         setTotalThurHours({
           name: props.data?.name,
-          total_thur_hours: totalThurAmPmHours,
+          total_thur_hours: totalThurHoursNormal,
           id: props.data?.id,
         });
       }, []);
@@ -115,12 +247,12 @@ function ProgramDivs(props) {
           id: props.data?.id,
         });
       }, []);
-    } else {
-      let startThurTimeNum = parseInt(
-        props.data?.thur_start_time?.replace(/\D/g, "")
-      );
+    } else if (props.data?.thur_start_time.includes("30")) {
       let endThurTimeNum = parseInt(
         props.data?.thur_end_time.replace(/\D/g, "")
+      );
+      let startThurTimeNum = parseFloat(
+        props.data?.thur_start_time?.replace(/\D/g, "").replace("30", ".5")
       );
       let totalThurHoursNormal = endThurTimeNum - startThurTimeNum;
       useEffect(() => {
