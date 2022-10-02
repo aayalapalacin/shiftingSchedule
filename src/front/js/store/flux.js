@@ -22,6 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
       getProgram: async () => {
+        console.log("process.env.BACKEND_URL ", process.env.BACKEND_URL);
         try {
           // fetching data from the backend
           const resp = await fetch(
