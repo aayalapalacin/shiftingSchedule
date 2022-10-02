@@ -39,17 +39,202 @@ import PropTypes from "prop-types";
 function ProgramDivs(props) {
   const [totalHours, setTotalHours] = useState([]);
   const [totalThurHours, setTotalThurHours] = useState([]);
+  const [totalSatHours, setTotalSatHours] = useState([]);
   let startTimeNum = parseInt(props.data?.start_time?.replace(/\D/g, ""));
   let endTimeNum = parseInt(props.data?.end_time?.replace(/\D/g, ""));
   let totalHoursNormal = endTimeNum - startTimeNum;
   let totalAmPmHours = endTimeNum + 12 - startTimeNum;
 
-  // let startSatTimeNum = parseInt(
-  //   props.data?.sat_start_time?.replace(/\D/g, "")
-  // );
-  // let endSatTimeNum = parseInt(props.data?.sat_end_time.replace(/\D/g, ""));
-  // let totalSatHoursNormal = endSatTimeNum - startSatTimeNum;
-  // let totalSatAmPmHours = endSatTimeNum + 12 - startSatTimeNum;
+  // normal program total hours
+  if (props.data?.start_time == "12PM") {
+    if (props.data?.end_time.includes("30")) {
+      let endTimeNum = parseFloat(
+        props.data?.end_time.replace(/\D/g, "").replace("30", ".5")
+      );
+
+      useEffect(() => {
+        setTotalHours({
+          name: props.data?.name,
+          total_hours: endTimeNum,
+          id: props.data?.id,
+        });
+      }, []);
+    } else {
+      let endTimeNum = parseInt(props.data?.end_time.replace(/\D/g, ""));
+
+      useEffect(() => {
+        setTotalHours({
+          name: props.data?.name,
+          total_hours: endTimeNum,
+          id: props.data?.id,
+        });
+      }, []);
+    }
+  } else if (
+    props.data?.start_time.includes("AM") &&
+    props.data?.end_time.includes("PM")
+  ) {
+    if (
+      props.data?.start_time.includes("30") &&
+      props.data?.end_time.includes("30")
+    ) {
+      if (props.data?.end_time.includes("12:30")) {
+        let startTimeNum = parseFloat(
+          props.data?.start_time?.replace(/\D/g, "").replace("30", ".5")
+        );
+        let endTimeNum = parseFloat(
+          props.data?.end_time.replace(/\D/g, "").replace("30", ".5")
+        );
+        let totalAmPmHours = endTimeNum - startTimeNum;
+        useEffect(() => {
+          setTotalHours({
+            name: props.data?.name,
+            total_hours: totalAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
+      } else {
+        let startTimeNum = parseFloat(
+          props.data?.start_time?.replace(/\D/g, "").replace("30", ".5")
+        );
+        let endTimeNum = parseFloat(
+          props.data?.end_time.replace(/\D/g, "").replace("30", ".5")
+        );
+        let totalAmPmHours = endTimeNum + 12 - startTimeNum;
+        useEffect(() => {
+          setTotalHours({
+            name: props.data?.name,
+            total_hours: totalAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
+      }
+    } else if (props.data?.start_time.includes("30")) {
+      if (props.data?.end_time == "12PM") {
+        let startTimeNum = parseFloat(
+          props.data?.start_time?.replace(/\D/g, "").replace("30", ".5")
+        );
+        let endTimeNum = parseInt(props.data?.end_time.replace(/\D/g, ""));
+        let totalAmPmHours = endTimeNum - startTimeNum;
+        useEffect(() => {
+          setTotalHours({
+            name: props.data?.name,
+            total_hours: totalAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
+      } else {
+        let startTimeNum = parseFloat(
+          props.data?.start_time?.replace(/\D/g, "").replace("30", ".5")
+        );
+        let endTimeNum = parseInt(props.data?.end_time.replace(/\D/g, ""));
+        let totalAmPmHours = endTimeNum + 12 - startTimeNum;
+        useEffect(() => {
+          setTotalHours({
+            name: props.data?.name,
+            total_hours: totalAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
+      }
+    } else if (props.data?.end_time.includes("30")) {
+      if (props.data?.end_time == "12:30PM") {
+        let startTimeNum = parseInt(props.data?.start_time?.replace(/\D/g, ""));
+        let endTimeNum = parseFloat(
+          props.data?.end_time.replace(/\D/g, "").replace("30", ".5")
+        );
+        let totalAmPmHours = endTimeNum - startTimeNum;
+        useEffect(() => {
+          setTotalHours({
+            name: props.data?.name,
+            total_hours: totalAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
+      } else {
+        let startTimeNum = parseInt(props.data?.start_time?.replace(/\D/g, ""));
+        let endTimeNum = parseFloat(
+          props.data?.end_time.replace(/\D/g, "").replace("30", ".5")
+        );
+        let totalAmPmHours = endTimeNum + 12 - startTimeNum;
+        useEffect(() => {
+          setTotalHours({
+            name: props.data?.name,
+            total_hours: totalAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
+      }
+    } else if (props.data?.end_time == "12PM") {
+      let startTimeNum = parseInt(props.data?.start_time?.replace(/\D/g, ""));
+      let endTimeNum = parseInt(props.data?.end_time.replace(/\D/g, ""));
+      let totalAmPmHours = endTimeNum - startTimeNum;
+      useEffect(() => {
+        setTotalHours({
+          name: props.data?.name,
+          total_hours: totalAmPmHours,
+          id: props.data?.id,
+        });
+      }, []);
+    } else {
+      let startTimeNum = parseInt(props.data?.start_time?.replace(/\D/g, ""));
+      let endTimeNum = parseInt(props.data?.end_time.replace(/\D/g, ""));
+      let totalAmPmHours = endTimeNum + 12 - startTimeNum;
+      useEffect(() => {
+        setTotalHours({
+          name: props.data?.name,
+          total_hours: totalAmPmHours,
+          id: props.data?.id,
+        });
+      }, []);
+    }
+  } else if (
+    props.data?.start_time.includes("30") &&
+    props.data?.end_time.includes("30")
+  ) {
+    let startTimeNum = parseFloat(
+      props.data?.start_time?.replace(/\D/g, "").replace("30", ".5")
+    );
+    let endTimeNum = parseFloat(
+      props.data?.end_time.replace(/\D/g, "").replace("30", ".5")
+    );
+    let totalHoursNormal = endTimeNum - startTimeNum;
+    useEffect(() => {
+      setTotalHours({
+        name: props.data?.name,
+        total_hours: totalHoursNormal,
+        id: props.data?.id,
+      });
+    }, []);
+  } else if (props.data?.end_time.includes("30")) {
+    let endTimeNum = parseFloat(
+      props.data?.end_time.replace(/\D/g, "").replace("30", ".5")
+    );
+    let startTimeNum = parseInt(props.data?.start_time?.replace(/\D/g, ""));
+    let totalHoursNormal = endTimeNum - startTimeNum;
+    useEffect(() => {
+      setTotalHours({
+        name: props.data?.name,
+        total_hours: totalHoursNormal,
+        id: props.data?.id,
+      });
+    }, []);
+  } else if (props.data?.start_time.includes("30")) {
+    let endTimeNum = parseInt(props.data?.end_time.replace(/\D/g, ""));
+    let startTimeNum = parseFloat(
+      props.data?.start_time?.replace(/\D/g, "").replace("30", ".5")
+    );
+    let totalHoursNormal = endTimeNum - startTimeNum;
+    useEffect(() => {
+      setTotalHours({
+        name: props.data?.name,
+        total_hours: totalHoursNormal,
+        id: props.data?.id,
+      });
+    }, []);
+  }
+
+  // thursday program total hours:
   if (
     props.data?.thur_start_time != null &&
     props.data?.thur_end_time != null
@@ -264,34 +449,215 @@ function ProgramDivs(props) {
       }, []);
     }
   }
+  // Saturday program total hours
+  if (props.data?.sat_start_time != null && props.data?.sat_end_time != null) {
+    if (props.data?.sat_start_time == "12PM") {
+      if (props.data?.sat_end_time.includes("30")) {
+        let endSatTimeNum = parseFloat(
+          props.data?.sat_end_time.replace(/\D/g, "").replace("30", ".5")
+        );
 
-  if (props.data?.start_time == "12PM") {
-    useEffect(() => {
-      setTotalHours({
-        name: props.data?.name,
-        total_hours: endTimeNum,
-        id: props.data?.id,
-      });
-    }, []);
-  } else if (
-    props.data?.start_time.includes("AM") &&
-    props.data?.end_time.includes("PM")
-  ) {
-    useEffect(() => {
-      setTotalHours({
-        name: props.data?.name,
-        total_hours: totalAmPmHours,
-        id: props.data?.id,
-      });
-    }, []);
-  } else {
-    useEffect(() => {
-      setTotalHours({
-        name: props.data?.name,
-        total_hours: totalHoursNormal,
-        id: props.data?.id,
-      });
-    }, []);
+        useEffect(() => {
+          setTotalSatHours({
+            name: props.data?.name,
+            total_sat_hours: endSatTimeNum,
+            id: props.data?.id,
+          });
+        }, []);
+      } else {
+        let endSatTimeNum = parseInt(
+          props.data?.sat_end_time.replace(/\D/g, "")
+        );
+
+        useEffect(() => {
+          setTotalSatHours({
+            name: props.data?.name,
+            total_sat_hours: endSatTimeNum,
+            id: props.data?.id,
+          });
+        }, []);
+      }
+    } else if (
+      props.data?.sat_start_time.includes("AM") &&
+      props.data?.sat_end_time.includes("PM")
+    ) {
+      if (
+        props.data?.sat_start_time.includes("30") &&
+        props.data?.sat_end_time.includes("30")
+      ) {
+        if (props.data?.sat_end_time.includes("12:30")) {
+          let startSatTimeNum = parseFloat(
+            props.data?.sat_start_time?.replace(/\D/g, "").replace("30", ".5")
+          );
+          let endSatTimeNum = parseFloat(
+            props.data?.sat_end_time.replace(/\D/g, "").replace("30", ".5")
+          );
+          let totalSatAmPmHours = endSatTimeNum - startSatTimeNum;
+          useEffect(() => {
+            setTotalSatHours({
+              name: props.data?.name,
+              total_sat_hours: totalSatAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        } else {
+          let startSatTimeNum = parseFloat(
+            props.data?.sat_start_time?.replace(/\D/g, "").replace("30", ".5")
+          );
+          let endSatTimeNum = parseFloat(
+            props.data?.sat_end_time.replace(/\D/g, "").replace("30", ".5")
+          );
+          let totalSatAmPmHours = endSatTimeNum + 12 - startSatTimeNum;
+          useEffect(() => {
+            setTotalSatHours({
+              name: props.data?.name,
+              total_sat_hours: totalSatAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        }
+      } else if (props.data?.sat_start_time.includes("30")) {
+        if (props.data?.sat_end_time == "12PM") {
+          let startSatTimeNum = parseFloat(
+            props.data?.sat_start_time?.replace(/\D/g, "").replace("30", ".5")
+          );
+          let endSatTimeNum = parseInt(
+            props.data?.sat_end_time.replace(/\D/g, "")
+          );
+          let totalSatAmPmHours = endSatTimeNum - startSatTimeNum;
+          useEffect(() => {
+            setTotalSatHours({
+              name: props.data?.name,
+              total_sat_hours: totalSatAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        } else {
+          let startSatTimeNum = parseFloat(
+            props.data?.sat_start_time?.replace(/\D/g, "").replace("30", ".5")
+          );
+          let endSatTimeNum = parseInt(
+            props.data?.sat_end_time.replace(/\D/g, "")
+          );
+          let totalSatAmPmHours = endSatTimeNum + 12 - startSatTimeNum;
+          useEffect(() => {
+            setTotalSatHours({
+              name: props.data?.name,
+              total_sat_hours: totalSatAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        }
+      } else if (props.data?.sat_end_time.includes("30")) {
+        if (props.data?.sat_end_time == "12:30PM") {
+          let startSatTimeNum = parseInt(
+            props.data?.sat_start_time?.replace(/\D/g, "")
+          );
+          let endSatTimeNum = parseFloat(
+            props.data?.sat_end_time.replace(/\D/g, "").replace("30", ".5")
+          );
+          let totalSatAmPmHours = endSatTimeNum - startSatTimeNum;
+          useEffect(() => {
+            setTotalSatHours({
+              name: props.data?.name,
+              total_sat_hours: totalSatAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        } else {
+          let startSatTimeNum = parseInt(
+            props.data?.sat_start_time?.replace(/\D/g, "")
+          );
+          let endSatTimeNum = parseFloat(
+            props.data?.sat_end_time.replace(/\D/g, "").replace("30", ".5")
+          );
+          let totalSatAmPmHours = endSatTimeNum + 12 - startSatTimeNum;
+          useEffect(() => {
+            setTotalSatHours({
+              name: props.data?.name,
+              total_sat_hours: totalSatAmPmHours,
+              id: props.data?.id,
+            });
+          }, []);
+        }
+      } else if (props.data?.sat_end_time == "12PM") {
+        let startSatTimeNum = parseInt(
+          props.data?.sat_start_time?.replace(/\D/g, "")
+        );
+        let endSatTimeNum = parseInt(
+          props.data?.sat_end_time.replace(/\D/g, "")
+        );
+        let totalSatAmPmHours = endSatTimeNum - startSatTimeNum;
+        useEffect(() => {
+          setTotalSatHours({
+            name: props.data?.name,
+            total_sat_hours: totalSatAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
+      } else {
+        let startSatTimeNum = parseInt(
+          props.data?.sat_start_time?.replace(/\D/g, "")
+        );
+        let endSatTimeNum = parseInt(
+          props.data?.sat_end_time.replace(/\D/g, "")
+        );
+        let totalSatAmPmHours = endSatTimeNum + 12 - startSatTimeNum;
+        useEffect(() => {
+          setTotalSatHours({
+            name: props.data?.name,
+            total_sat_hours: totalSatAmPmHours,
+            id: props.data?.id,
+          });
+        }, []);
+      }
+    } else if (
+      props.data?.sat_start_time.includes("30") &&
+      props.data?.sat_end_time.includes("30")
+    ) {
+      let startSatTimeNum = parseFloat(
+        props.data?.sat_start_time?.replace(/\D/g, "").replace("30", ".5")
+      );
+      let endSatTimeNum = parseFloat(
+        props.data?.sat_end_time.replace(/\D/g, "").replace("30", ".5")
+      );
+      let totalSatHoursNormal = endSatTimeNum - startSatTimeNum;
+      useEffect(() => {
+        setTotalSatHours({
+          name: props.data?.name,
+          total_sat_hours: totalSatHoursNormal,
+          id: props.data?.id,
+        });
+      }, []);
+    } else if (props.data?.sat_end_time.includes("30")) {
+      let endSatTimeNum = parseFloat(
+        props.data?.sat_end_time.replace(/\D/g, "").replace("30", ".5")
+      );
+      let startSatTimeNum = parseInt(
+        props.data?.sat_start_time?.replace(/\D/g, "")
+      );
+      let totalSatHoursNormal = endSatTimeNum - startSatTimeNum;
+      useEffect(() => {
+        setTotalSatHours({
+          name: props.data?.name,
+          total_sat_hours: totalSatHoursNormal,
+          id: props.data?.id,
+        });
+      }, []);
+    } else if (props.data?.sat_start_time.includes("30")) {
+      let endSatTimeNum = parseInt(props.data?.sat_end_time.replace(/\D/g, ""));
+      let startSatTimeNum = parseFloat(
+        props.data?.sat_start_time?.replace(/\D/g, "").replace("30", ".5")
+      );
+      let totalSatHoursNormal = endSatTimeNum - startSatTimeNum;
+      useEffect(() => {
+        setTotalSatHours({
+          name: props.data?.name,
+          total_sat_hours: totalSatHoursNormal,
+          id: props.data?.id,
+        });
+      }, []);
+    }
   }
 
   const totalHoursRender = () => {
@@ -304,11 +670,19 @@ function ProgramDivs(props) {
       return totalThurHours.total_thur_hours;
     }
   };
-  console.log("total thur", totalHours.total_thur_hours);
+  const totalSatHoursRender = () => {
+    if (props.data?.id == totalSatHours.id) {
+      return totalSatHours.total_sat_hours;
+    }
+  };
+
   return (
     <div>
-      {props.data?.name} total hours are : {totalHoursRender()} thursday total
-      hours: {totalThurHoursRender()}
+      <div>
+        {props.data?.name} total hours are : {totalHoursRender()}
+      </div>
+      <div>thursday total hours: {totalThurHoursRender()}</div>
+      <div>saturday total hours: {totalSatHoursRender()}</div>
     </div>
   );
 }
