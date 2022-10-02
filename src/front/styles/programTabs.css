@@ -1,10 +1,21 @@
-.tab-container{
-    border: 3px solid black;
-    border-radius: 60px/20px;
-    margin-bottom: 0.5rem;
-/*     max-height: 50%;
-    max-width: 50%; */
-    }
-.modal-letter{
-    text-align: start;
+.tab-container {
+  text-align: center;
+  justify-content: flex-start;
+  border-radius: 75px/30px;
+  width: 14.5rem;
+  height: 6.2rem;
+  cursor: pointer;
+  filter: drop-shadow(black 6px 4px 4px);
+  font-family: "Alkalami";
+  font-size: medium;
+  background-color: #00929e;
+}
+.tab-container:hover {
+  box-shadow: 0 5px 15px rgba(209, 198, 198, 0.4);
+}
+.tab-container:active {
+  filter: drop-shadow(black 4px 2px 4px);
+}
+.modal-letter {
+  text-align: start;
 }
