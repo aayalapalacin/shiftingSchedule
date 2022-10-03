@@ -6,14 +6,12 @@ import ProgramTabs from "../component/programTabs";
 import ProgramDivs from "../component/programDivs";
 export const Home = (props) => {
   const { store, actions } = useContext(Context);
-
+  console.log("storey", store?.programs);
   return (
     <div className="text-center m-5 parentDiv border border-dark">
       <ProgramTabs />
       <Calendar />
-      {store.programs.map((item, index) => {
-        return <ProgramDivs data={item} key={index} />;
-      })}
+      <ProgramDivs data={store?.programs} />;
     </div>
   );
 };
