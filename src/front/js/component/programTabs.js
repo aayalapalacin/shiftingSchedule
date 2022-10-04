@@ -13,20 +13,19 @@ function ProgramTabs(props) {
     setTempData((item) => [1, ...tempData]);
   };
 
-  console.log(store.programs);
-  const list = store.programs.map((program, index) => {
+  const list = store.programs?.map((program, index) => {
     let color = "";
-    if (index == 0) {
+    if (program.name.includes("Onsite")) {
       color = { backgroundColor: "#" + 4287 + "f" + 5 };
-    } else if (index == 1) {
+    } else if (program.name.includes("Curbside")) {
       color = { backgroundColor: "#eb" + 4034 };
-    } else if (index == 2) {
+    } else if (program.name.includes("Meals")) {
       color = { backgroundColor: "#" + 6 + "c" + 757 + "d" };
-    } else if (index == 3) {
+    } else if (program.name.includes("Mobile")) {
       color = { backgroundColor: "#" + 48 + "B" + 1 + "BA" };
-    } else if (index == 4) {
+    } else if (program.name.includes("Additional")) {
       color = { backgroundColor: "#fbb" + 442 };
-    } else if (index == 5) {
+    } else if (program.name.includes("Fresh")) {
       color = { backgroundColor: "#" + 4287 + "f" + 5 };
     }
 
@@ -37,7 +36,7 @@ function ProgramTabs(props) {
         bottom: 2 + "px",
       };
     } else {
-      marginClick = "mt-4";
+      marginClick = "mt-1";
     }
 
     return (
@@ -48,11 +47,10 @@ function ProgramTabs(props) {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         key={index}
-        className="d-inline-flex col-3 justify-content-around me-1 mb-3 mt-2"
-      >
-        <div className="tab-container pt-3" style={color}>
+        className="d-inline-flex col-3 justify-content-around me-1">
+        <div className="tab-container mt-2 me-5 mb-3 pb-5" style={color}>
           <div className="row">
-            <h5 className="mt-1">{program.name}</h5>
+            <h5 className="mt-3 pe-3 ps-3" >{program.name}</h5>
           </div>
           <div className="row">
             <span className={marginClick}>
@@ -71,10 +69,9 @@ function ProgramTabs(props) {
   );
 }
 
-export default ProgramTabs;
 
 ProgramTabs.propTypes = {
-  index: propTypes.number,
-  name: propTypes.string,
-  description: propTypes.string,
+  data: propTypes.object,
 };
+
+export default ProgramTabs;
