@@ -35,7 +35,7 @@ function ProgramTabs(props) {
         bottom: 2 + "px"
       };
     } else {
-      marginClick = "mt-3";
+      marginClick = "mt-1";
     }
 
     return (
