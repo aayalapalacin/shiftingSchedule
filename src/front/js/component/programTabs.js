@@ -1,118 +1,75 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import propTypes from "prop-types";
 import "../../styles/programTabs.css";
-import Modal from "../component/modal.js"
+import Modal from "../component/modal.js";
 
-function ProgramTabs() {
+function ProgramTabs(props) {
+  const { store, actions } = useContext(Context);
   const [tempData, setTempData] = useState([]);
 
-   
-  const programs = [
-    {
-      name: "Food Pantry: Onsite",
-      description:
-        "Nutritious staples for individuals & families from 13 towns. Monthly pick-up. Brief intake required.",
-      startEndTimeText: "Food Pantry Onsite: 12pm-3pm",
-      startSatText: "Food Pantry Onsite: 9am-12pm",
-      startThurText: "Food Pantry Onsite: 12pm-7pm",
-    },
-    {
-      name: "Food Pantry: Curbside",
-      description:
-        "Nutritious staples for individuals & families from 13 towns. Monthly pick-up. Brief intake required.",
-      startEndTimeText: "Food Pantry Curbside: 3pm-4pm",
-      startThurText: "Food Pantry Curbside: 5pm-7:30pm",
-      startSatText: "Food Pantry Curbside: 9am-12pm",
-    },
-    {
-      name: "Community Meals",
-      description: "To Go Hot Lunch Distributed to all.",
-      startEndTimeText: "Community Meals: 12pm-3pm",
-    },
-    {
-      name: "Mobile Food Pantry",
-      description:
-        "Located at the Boulders Apartment Homes located at 156 Brittany Drive in Amherst",
-      startEndTimeText: "Mobile Food Pantry: 1st Wed/month 1pm-2pm",
-    },
-    {
-      name: "Fresh Produce and Baked Goods",
-      description: "Distributed to all.",
-      startEndTimeText: "Fresh Produce + Baked Goods: 12pm-3pm",
-    },
-    {
-      name: "Additional Services",
-      description:
-        "Warming center, showers, laundry and lockers. **last load of laundry must be in 1.5 hours before close, last shower is 30 min. before close",
-      startEndTimeText: "Addional Services: 9am-3pm",
-    },
-  ];
-  
-
-
-  const getData=(index,name,description)=>{
-    let tempData= [index,name,description]
-    setTempData(item => [1,...tempData])
-  }
-
-  const list = programs.map((program, index)=>{
-    let color=""
-    if(index==0){
-      color={"background-color":"#"+4287+"f"+5}
-    }else if (index==1){
-      color={"background-color":"#eb"+4034}
-    }else if (index==2){
-      color={"background-color":"#"+6+"c"+757+"d"}
-    }else if (index==3){
-      color={"background-color":"#"+48+"B"+1+"BA"}
-    }else if (index==4){
-      color={"background-color":"#fbb"+442}
-    }else if (index==5){
-      color={"background-color":"#"+4287+"f"+5}
+  const getData = (index, name, description) => {
+    let tempData = [index, name, description];
+    setTempData((item) => [1, ...tempData]);
+  };
+  const list = store.programs?.map((program, index) => {
+    let color = "";
+    if (program.name.includes("Onsite")) {
+      color = { backgroundColor: "#" + 4287 + "f" + 5 };
+    } else if (program.name.includes("Curbside")) {
+      color = { backgroundColor: "#eb" + 4034 };
+    } else if (program.name.includes("Additional")) {
+      color = { backgroundColor: "#F"+2770+"C" };
+    } else if (program.name.includes("Mobile")) {
+      color = { backgroundColor: "#" + 48 + "B" + 1 + "BA" };
+    } else if (program.name.includes("Fresh")) {
+      color = { backgroundColor: "#fbb" + 442 };
+    } else if (program.name.includes("Meals")) {
+      color = { backgroundColor: "#"+1+"E"+53+"FA" };
     }
-    
-    let marginClick=""
-    if(index==4){
-      marginClick={
-        position:"relative",
-        bottom: 2+"px"
-    }
-    }else {
-      marginClick="mt-4"
+
+    let marginClick = "";
+    if (program.name.startsWith("Fresh")) {
+      marginClick = {
+        position: "relative",
+        bottom: 2 + "px"
+      };
+    } else {
+      marginClick = "mt-1";
     }
 
     return (
       <div
-        onClick={() => {
-          getData(program.index, program.name, program.description);
-        }}
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-        key={index}
-        className="d-inline-flex col-3 justify-content-around me-1 mb-3 mt-2"
+        style={color}
+        className="tab-container mt-2 me-5 mb-2 d-inline-flex justify-space-around"
       >
-        <div className="tab-container pt-3" style={color}>
-          <div className="row">
-            <h5 className="mt-1">{program.name}</h5>
+        <div
+          onClick={() => {
+            getData(program.index, program.name, program.description);
+          }}
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          key={index}
+        ><div className="row mt-2">
+          <span className="name">{program.name}</span>
           </div>
           <div className="row">
-            <span className={marginClick}  >
-              <p>Click for more info</p>
-            </span>
+            <span className={marginClick}>Click for more info</span>
           </div>
         </div>
       </div>
     );
-  })
+  });
   return (
     <div>
       {list}
-      <Modal
-      index={tempData[1]}
-      name={tempData[2]}
-      description={tempData[3]}
-       />  
+      <Modal index={tempData[1]} name={tempData[2]} description={tempData[3]} />
     </div>
   );
 }
+
+ProgramTabs.propTypes = {
+  data: propTypes.object,
+};
 
 export default ProgramTabs;
