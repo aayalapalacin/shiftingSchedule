@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import propTypes from "prop-types";
 import "../../styles/programTabs.css";
 import Modal from "../component/modal.js";
 
-function ProgramTabs(props) {
+function ProgramTabs() {
   const { store, actions } = useContext(Context);
   const [tempData, setTempData] = useState([]);
 
@@ -19,20 +18,20 @@ function ProgramTabs(props) {
     } else if (program.name.includes("Curbside")) {
       color = { backgroundColor: "#eb" + 4034 };
     } else if (program.name.includes("Additional")) {
-      color = { backgroundColor: "#F"+2770+"C" };
+      color = { backgroundColor: "#F" + 2770 + "C" };
     } else if (program.name.includes("Mobile")) {
       color = { backgroundColor: "#" + 48 + "B" + 1 + "BA" };
     } else if (program.name.includes("Fresh")) {
       color = { backgroundColor: "#fbb" + 442 };
     } else if (program.name.includes("Meals")) {
-      color = { backgroundColor: "#"+1+"E"+53+"FA" };
+      color = { backgroundColor: "#" + 1 + "E" + 53 + "FA" };
     }
 
     let marginClick = "";
     if (program.name.startsWith("Fresh")) {
       marginClick = {
         position: "relative",
-        bottom: 2 + "px"
+        bottom: 2 + "px",
       };
     } else {
       marginClick = "mt-1";
@@ -50,8 +49,9 @@ function ProgramTabs(props) {
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
           key={index}
-        ><div className="row mt-2">
-          <span className="name">{program.name}</span>
+        >
+          <div className="row mt-2">
+            <span className="name">{program.name}</span>
           </div>
           <div className="row">
             <span className={marginClick}>Click for more info</span>
@@ -67,9 +67,5 @@ function ProgramTabs(props) {
     </div>
   );
 }
-
-ProgramTabs.propTypes = {
-  data: propTypes.object,
-};
 
 export default ProgramTabs;
