@@ -4,7 +4,7 @@
   width: 14.3rem;
   height: 4.8rem;
   cursor: pointer;
-  filter: drop-shadow(black 3px 5px 5px);
+  filter: drop-shadow(black 2px 2px 3px);
   font-family: "Alkalami";
   font-size: small;
 }
@@ -17,7 +17,7 @@
 .modal-letter {
   text-align: start;
 }
-.name{
+.name {
   font-size: 17.5px;
   font-family: "Alkami";
   font-weight: bolder;

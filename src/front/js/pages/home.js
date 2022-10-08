@@ -4,7 +4,7 @@ import "../../styles/home.css";
 import Calendar from "./calendar";
 import ProgramTabs from "../component/programTabs";
 import ProgramDivs from "../component/programDivs";
-export const Home = (props) => {
+export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
