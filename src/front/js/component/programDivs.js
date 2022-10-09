@@ -44,12 +44,6 @@ function ProgramDivs(props) {
   let totalHoursNormal = endTimeNum - startTimeNum;
   let totalAmPmHours = endTimeNum + 12 - startTimeNum;
 
-  // let startSatTimeNum = parseInt(
-  //   props.data?.sat_start_time?.replace(/\D/g, "")
-  // );
-  // let endSatTimeNum = parseInt(props.data?.sat_end_time.replace(/\D/g, ""));
-  // let totalSatHoursNormal = endSatTimeNum - startSatTimeNum;
-  // let totalSatAmPmHours = endSatTimeNum + 12 - startSatTimeNum;
   if (
     props.data?.thur_start_time != null &&
     props.data?.thur_end_time != null

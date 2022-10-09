@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Context } from "../store/appContext";
-import { useContext } from "react";
 
 function Calendar(props) {
   return (
