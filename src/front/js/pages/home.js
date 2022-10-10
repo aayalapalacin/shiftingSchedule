@@ -4,16 +4,14 @@ import "../../styles/home.css";
 import Calendar from "./calendar";
 import ProgramTabs from "../component/programTabs";
 import ProgramDivs from "../component/programDivs";
-export const Home = (props) => {
+export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
     <div className="text-center m-5 parentDiv border border-dark">
       <ProgramTabs />
       <Calendar />
-      {store.programs.map((item, index) => {
-        return <ProgramDivs data={item} key={index} />;
-      })}
+      <ProgramDivs />;
     </div>
   );
 };
