@@ -11,9 +11,7 @@ export const Home = () => {
     <div className="text-center m-5 parentDiv border border-dark">
       <ProgramTabs />
       <Calendar />
-      {store.programs.map((item, index) => {
-        return <ProgramDivs data={item} key={index} />;
-      })}
+      <ProgramDivs />;
     </div>
   );
 };
