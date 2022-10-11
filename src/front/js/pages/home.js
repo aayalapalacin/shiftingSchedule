@@ -10,8 +10,8 @@ export const Home = () => {
   return (
     <div className="text-center m-5 parentDiv border border-dark">
       <ProgramTabs />
+      <ProgramDivs />
       <Calendar />
-      <ProgramDivs />;
     </div>
   );
 };

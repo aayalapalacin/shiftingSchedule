@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 // const start10am = () => {
 //   return (
@@ -37,7 +36,7 @@ import { Context } from "../store/appContext";
 // const start7pm = () => {
 //   return <div className="7pm" style={{ fontSize: "13px", width: "92%" }}></div>;
 // };
-function ProgramDivs(props) {
+function ProgramDivs() {
   let totalHours = [];
   let totalThurHours = [];
   let totalSatHours = [];
@@ -700,25 +699,218 @@ function ProgramDivs(props) {
       }
     }
   }
-  console.log("totalHours", totalHours);
-  console.log("totalThurHours", totalThurHours);
-  console.log("totalSatHours", totalSatHours);
+  // mapping to implement once we have conditional rendering functioning
+  // {store.programs.map((item, index) => {
+  //   return (
+  //     <div key={index}>
 
+  //     </div>
+  //   );
+  // })}
   return (
     <div>
-      {store.programs.map((item, index) => {
-        return (
-          <div key={index}>
-            <div>{item?.name}</div>
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="pills-monday-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-monday"
+            type="button"
+            role="tab"
+            aria-controls="pills-monday"
+            aria-selected="true"
+          >
+            Monday
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-tuesday-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-tuesday"
+            type="button"
+            role="tab"
+            aria-controls="pills-tuesday"
+            aria-selected="false"
+          >
+            Tuesday
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-wednesday-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-wednesday"
+            type="button"
+            role="tab"
+            aria-controls="pills-wednesday"
+            aria-selected="false"
+          >
+            Wednesday
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-thursday-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-thursday"
+            type="button"
+            role="tab"
+            aria-controls="pills-thursday"
+            aria-selected="false"
+          >
+            Thursday
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-friday-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-friday"
+            type="button"
+            role="tab"
+            aria-controls="pills-friday"
+            aria-selected="false"
+          >
+            Friday
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-saturday-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-saturday"
+            type="button"
+            role="tab"
+            aria-controls="pills-saturday"
+            aria-selected="false"
+          >
+            Saturday
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-sunday-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-sunday"
+            type="button"
+            role="tab"
+            aria-controls="pills-sunday"
+            aria-selected="false"
+          >
+            Sunday
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="pills-monday"
+          role="tabpanel"
+          aria-labelledby="pills-monday-tab"
+          tabindex="0"
+        >
+          <div
+            className="position-absolute"
+            style={{ top: "67%", left: "40%" }}
+          >
+            test monday
           </div>
-        );
-      })}
+        </div>
+        <div
+          class="tab-pane fade"
+          id="pills-tuesday"
+          role="tabpanel"
+          aria-labelledby="pills-tuesday-tab"
+          tabindex="0"
+        >
+          <div
+            className="position-absolute"
+            style={{ top: "67%", left: "45%" }}
+          >
+            test tuesday
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="pills-wednesday"
+          role="tabpanel"
+          aria-labelledby="pills-wednesday-tab"
+          tabindex="0"
+        >
+          <div
+            className="position-absolute"
+            style={{ top: "67%", left: "40%" }}
+          >
+            test wednesday
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="pills-thursday"
+          role="tabpanel"
+          aria-labelledby="pills-thursday-tab"
+          tabindex="0"
+        >
+          <div
+            className="position-absolute"
+            style={{ top: "67%", left: "45%" }}
+          >
+            test thursday
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="pills-friday"
+          role="tabpanel"
+          aria-labelledby="pills-friday-tab"
+          tabindex="0"
+        >
+          <div
+            className="position-absolute"
+            style={{ top: "67%", left: "40%" }}
+          >
+            test friday
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="pills-saturday"
+          role="tabpanel"
+          aria-labelledby="pills-saturday-tab"
+          tabindex="0"
+        >
+          <div
+            className="position-absolute"
+            style={{ top: "67%", left: "45%" }}
+          >
+            test saturday
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="pills-sunday"
+          role="tabpanel"
+          aria-labelledby="pills-sunday-tab"
+          tabindex="0"
+        >
+          <div
+            className="position-absolute"
+            style={{ top: "67%", left: "40%" }}
+          >
+            test sunday
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
-ProgramDivs.propTypes = {
-  data: PropTypes.object,
-};
 
 export default ProgramDivs;
