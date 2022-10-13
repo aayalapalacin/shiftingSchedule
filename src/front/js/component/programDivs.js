@@ -707,12 +707,23 @@ function ProgramDivs() {
   //     </div>
   //   );
   // })}
+  const ProgramProgBarText = (day) => {
+    let dayOfTheWeek = day.day
+    let programToRender = store.programs?.map((program, index) => {
+      if (program[dayOfTheWeek]) {
+        return <div key={index}>{program.prog_bar_txt}</div>;
+      }else{
+        return <div key={index}></div>
+      }
+    });
+    return programToRender;
+  };
   return (
     <div>
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
+      <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link active"
+            className="nav-link active"
             id="pills-monday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-monday"
@@ -724,9 +735,9 @@ function ProgramDivs() {
             Monday
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="pills-tuesday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-tuesday"
@@ -738,9 +749,9 @@ function ProgramDivs() {
             Tuesday
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="pills-wednesday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-wednesday"
@@ -752,9 +763,9 @@ function ProgramDivs() {
             Wednesday
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="pills-thursday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-thursday"
@@ -766,9 +777,9 @@ function ProgramDivs() {
             Thursday
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="pills-friday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-friday"
@@ -780,9 +791,9 @@ function ProgramDivs() {
             Friday
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="pills-saturday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-saturday"
@@ -794,9 +805,9 @@ function ProgramDivs() {
             Saturday
           </button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
-            class="nav-link"
+            className="nav-link"
             id="pills-sunday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-sunday"
@@ -809,103 +820,110 @@ function ProgramDivs() {
           </button>
         </li>
       </ul>
-      <div class="tab-content" id="pills-tabContent">
+      <div className="tab-content" id="pills-tabContent">
         <div
-          class="tab-pane fade show active"
+          className="tab-pane fade show active"
           id="pills-monday"
           role="tabpanel"
           aria-labelledby="pills-monday-tab"
-          tabindex="0"
+          tabIndex="0"
         >
           <div
             className="position-absolute"
             style={{ top: "67%", left: "40%" }}
           >
-            test monday
+          <ProgramProgBarText day="monday" />
+{/*             test monday */}
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="pills-tuesday"
           role="tabpanel"
           aria-labelledby="pills-tuesday-tab"
-          tabindex="0"
+          tabIndex="0"
         >
           <div
             className="position-absolute"
             style={{ top: "67%", left: "45%" }}
           >
-            test tuesday
+          <ProgramProgBarText day="tuesday" />
+{/*             test tuesday */}
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="pills-wednesday"
           role="tabpanel"
           aria-labelledby="pills-wednesday-tab"
-          tabindex="0"
+          tabIndex="0"
         >
           <div
             className="position-absolute"
             style={{ top: "67%", left: "40%" }}
           >
-            test wednesday
+          <ProgramProgBarText day="wednesday" />
+{/*             test wednesday */}
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="pills-thursday"
           role="tabpanel"
           aria-labelledby="pills-thursday-tab"
-          tabindex="0"
+          tabIndex="0"
         >
           <div
             className="position-absolute"
             style={{ top: "67%", left: "45%" }}
           >
-            test thursday
+            <ProgramProgBarText day="thursday" />
+{/*             test thursday */}
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="pills-friday"
           role="tabpanel"
           aria-labelledby="pills-friday-tab"
-          tabindex="0"
+          tabIndex="0"
         >
           <div
             className="position-absolute"
             style={{ top: "67%", left: "40%" }}
           >
-            test friday
+            <ProgramProgBarText day="friday" />
+{/*             test friday */}
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="pills-saturday"
           role="tabpanel"
           aria-labelledby="pills-saturday-tab"
-          tabindex="0"
+          tabIndex="0"
         >
           <div
             className="position-absolute"
             style={{ top: "67%", left: "45%" }}
           >
-            test saturday
+            <ProgramProgBarText day="saturday"/>
+            {/*             test saturday */}
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="pills-sunday"
           role="tabpanel"
           aria-labelledby="pills-sunday-tab"
-          tabindex="0"
+          tabIndex="0"
         >
           <div
             className="position-absolute"
             style={{ top: "67%", left: "40%" }}
           >
-            test sunday
+            <ProgramProgBarText day="sunday" />
+{/*             test sunday */}
           </div>
         </div>
       </div>
