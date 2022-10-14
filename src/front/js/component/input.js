@@ -7,13 +7,13 @@ const validate = Yup.object({
   programStartTime: Yup.string()
     .matches(
       /^(?<!\S)1[0-2][AP][\M]$(?!\S)|(?<!\S)[1-9][AP][\M]$(?!\S)/,
-      "format must be correct hour followed by AM/PM all caps, no spaces"
+      "format must be the correct hour followed by AM/PM all caps, no spaces"
     )
     .required("This field is requried"),
   programEndTime: Yup.string()
     .matches(
       /^(?<!\S)1[0-2][AP][\M]$(?!\S)|(?<!\S)[1-9][AP][\M]$(?!\S)/,
-      "format must be correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
+      "format must be the correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
     )
     .required("This field is requried"),
   programDescription: Yup.string()
@@ -24,20 +24,20 @@ const validate = Yup.object({
     .required("This field is requried"),
   programThurStartTime: Yup.string().matches(
     /^(?<!\S)1[0-2][AP][\M]$(?!\S)|(?<!\S)[1-9][AP][\M]$(?!\S)/,
-    "format must be correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
+    "format must be the correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
   ),
   programThurEndTime: Yup.string().matches(
     /^(?<!\S)1[0-2][AP][\M]$(?!\S)|(?<!\S)[1-9][AP][\M]$(?!\S)/,
-    "format must be correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
+    "format must be the correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
   ),
   programThurBarTxt: Yup.string().max(3, "Must be 3 characters long"),
   programSatStartTime: Yup.string().matches(
     /^(?<!\S)1[0-2][AP][\M]$(?!\S)|(?<!\S)[1-9][AP][\M]$(?!\S)/,
-    "format must be correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
+    "format must be the correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
   ),
   programSatEndTime: Yup.string().matches(
     /^(?<!\S)1[0-2][AP][\M]$(?!\S)|(?<!\S)[1-9][AP][\M]$(?!\S)/,
-    "format must be correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
+    "format must be the correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
   ),
   programSatBarTxt: Yup.string().max(3, "Must be 3 characters long"),
 });
@@ -86,6 +86,21 @@ function Input() {
               name="programBarTxt"
               type="text"
             />
+            <input type="checkbox" id="monday" name="monday" />
+            <label for="monday">Monday</label>
+            <input type="checkbox" id="tuesday" name="tuesday" />
+            <label for="tuesday">Tuesday</label>
+            <input type="checkbox" id="wednesday" name="wednesday" />
+            <label for="wednesday">Wednesday</label>
+            <input type="checkbox" id="thursday" name="thursday" />
+            <label for="thursday">Thursday</label>
+            <input type="checkbox" id="friday" name="friday" />
+            <label for="friday">Friday</label>
+            <input type="checkbox" id="saturday" name="saturday" />
+            <label for="saturday">Saturday</label>
+            <input type="checkbox" id="sunday" name="sunday" />
+            <label for="sunday">Sunday</label>
+
             <TextField
               label="program thursday start time"
               name="programThurStartTime"
