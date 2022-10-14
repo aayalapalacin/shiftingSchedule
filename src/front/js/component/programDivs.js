@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
+
+import "../../styles/programDivs.css";
 // const start10am = () => {
 //   return (
 //     <div className="10am" style={{ fontSize: "13px", width: "10%" }}></div>
@@ -708,22 +710,73 @@ function ProgramDivs() {
   //   );
   // })}
   const ProgramProgBarText = (day) => {
-    let dayOfTheWeek = day.day
+    let dayOfTheWeek = day.day;
+    console.log(dayOfTheWeek);
     let programToRender = store.programs?.map((program, index) => {
-      if (program[dayOfTheWeek]) {
-        return <div key={index}>{program.prog_bar_txt}</div>;
-      }else{
-        return <div key={index}></div>
+      if (
+        program[dayOfTheWeek] &&
+        program.prog_bar_sat_txt &&
+        program.prog_bar_thur_txt
+      ) {
+        return (
+          <>
+            <div key={index}>
+              <div>Text:{program.prog_bar_txt}</div>
+              <div>sat:{program.prog_bar_sat_txt}</div>
+              <div>thurs:{program.prog_bar_thur_txt}</div>
+            </div>
+          </>
+        );
+      } else if (
+        program[dayOfTheWeek] &&
+        program.prog_bar_sat_txt &&
+        !program.prog_bar_thur_txt
+      ) {
+        return (
+          <>
+            <div key={index}>
+              <div>Text:{program.prog_bar_txt}</div>
+              <div>sat:{program.prog_bar_sat_txt}</div>
+            </div>
+          </>
+        );
+      } else if (
+        program[dayOfTheWeek] &&
+        !program.prog_bar_sat_txt &&
+        program.prog_bar_thur_txt
+      ) {
+        return (
+          <>
+            <div key={index}>
+              <div>Text:{program.prog_bar_txt}</div>
+              <div>thurs:{program.prog_bar_thur_txt}</div>
+            </div>
+          </>
+        );
+      } else if (
+        program[dayOfTheWeek] &&
+        !program.prog_bar_sat_txt &&
+        !program.prog_bar_thur_txt
+      ) {
+        return (
+          <>
+            <div key={index}>
+              <div>Text:{program.prog_bar_txt}</div>
+            </div>
+          </>
+        );
+      } else {
+        return <div key={index}></div>;
       }
     });
     return programToRender;
   };
   return (
     <div>
-      <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <ul className="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link active"
+            className="nav-link active ms-1"
             id="pills-monday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-monday"
@@ -807,7 +860,7 @@ function ProgramDivs() {
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link"
+            className="nav-link me-1"
             id="pills-sunday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-sunday"
@@ -859,8 +912,8 @@ function ProgramDivs() {
           tabIndex="0"
         >
           <div
-            className="position-absolute"
-            style={{ top: "67%", left: "40%" }}
+            className="position-absolute program-wednesday"
+            style={{ top: "64.2%", left: "31.3%", width: 7.3+"em", height: 2.7+"em" }}
           >
           <ProgramProgBarText day="wednesday" />
 {/*             test wednesday */}
