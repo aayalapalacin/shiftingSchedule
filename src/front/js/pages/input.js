@@ -2,6 +2,8 @@ import React from "react";
 import { Formik, Form } from "formik";
 import TextField from "../component/textField";
 import * as Yup from "yup";
+import "../../styles/input.css";
+
 const validate = Yup.object({
   programName: Yup.string()
     .required("This field is requried")
@@ -64,11 +66,23 @@ function Input() {
     >
       {(formik) => (
         <div className="mx-4">
-          <h1 className="my-4  font-weight-bold display-4">Program Entry</h1>
-          {console.log("formik", formik.values)}
+          <div className="row mb-2">
+            <div className="col-8">
+              <h1 className="my-4  font-weight-bold display-5 ">
+                Program Entry
+              </h1>
+            </div>
+            <div className="col-4">
+              <img
+                className="ascIMg float-end me-4"
+                src="http://amherstsurvival.org/wp-content/uploads/2019/10/WEB-LOGO.png"
+                alt="ASC logo"
+              />
+            </div>
+          </div>
           <Form>
             <div className="row">
-              <div className="col">
+              <div className="col border border-2  p-3 ">
                 <div className="row">
                   <TextField
                     label="program name"
@@ -87,7 +101,7 @@ function Input() {
                     type="text"
                   />
                 </div>
-                <div className="row">
+                <div className=" strtEndTimeWeekday row">
                   <div className="col">
                     <TextField
                       label="program start time"
@@ -101,7 +115,7 @@ function Input() {
                     />
                   </div>
                   <div className="col d-flex pt-2">
-                    <div className="pe-5">
+                    <div className=" mon-thurBox pe-5">
                       <div className="pb-1 fs-5">
                         <input
                           className="me-2"
@@ -139,7 +153,7 @@ function Input() {
                         <label htmlFor="thursday">Thursday</label>
                       </div>
                     </div>
-                    <div className="">
+                    <div className="fri-sunBox">
                       <div className="pb-1 fs-5">
                         <input
                           className="me-2"
@@ -170,33 +184,43 @@ function Input() {
                     </div>
                   </div>
                 </div>
+                <div className="row mt-4 submitReset">
+                  <div className="col-6 ">
+                    <button className=" btn btn-info px-3 me-3 " type="submit">
+                      Submit
+                    </button>
+                    <button className=" btn btn-secondary px-3 " type="reset">
+                      Reset
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="col">
-                <div className="row">
-                  <div className="col">
+              <div className="col ps-2 ">
+                <div className="row border border-2  p-3 ms-1 mb-2 ">
+                  <div className="col ">
                     <TextField
                       label="program thursday bar text"
                       name="programThurBarTxt"
                       type="text"
                     />
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col-6">
-                    <TextField
-                      label="program thursday start time"
-                      name="programThurStartTime"
-                      type="text"
-                    />
-                    <TextField
-                      label="program thursday end time"
-                      name="programThurEndTime"
-                      type="text"
-                    />
+                  <div className="row ">
+                    <div className="col-6">
+                      <TextField
+                        label="program thursday start time"
+                        name="programThurStartTime"
+                        type="text"
+                      />
+                      <TextField
+                        label="program thursday end time"
+                        name="programThurEndTime"
+                        type="text"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                <div className="row">
+                <div className="row border border-2 p-3 ms-1 ">
                   <div className="row">
                     <div className="col">
                       <TextField
@@ -223,9 +247,6 @@ function Input() {
                 </div>
               </div>
             </div>
-
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
           </Form>
         </div>
       )}
