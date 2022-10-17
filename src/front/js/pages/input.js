@@ -1,5 +1,6 @@
-import React from "react";
-import { Formik, Form } from "formik";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+import { Formik, Form, Field } from "formik";
 import TextField from "../component/textField";
 import * as Yup from "yup";
 import "../../styles/input.css";
@@ -47,6 +48,7 @@ const validate = Yup.object({
 });
 
 function Input() {
+  const { store, actions } = useContext(Context);
   return (
     <Formik
       initialValues={{
@@ -61,11 +63,19 @@ function Input() {
         programSatStartTime: "",
         programSatEndTime: "",
         programSatBarTxt: "",
+        monday: false,
+        tuesday: false,
+        wednesday: false,
+        thursday: false,
+        friday: false,
+        saturday: false,
+        sunday: false,
       }}
       validationSchema={validate}
     >
       {(formik) => (
         <div className="mx-4">
+          {console.log("test", formik.values)}
           <div className="row mb-2">
             <div className="col-8">
               <h1 className="my-4  font-weight-bold display-5 ">
@@ -117,69 +127,83 @@ function Input() {
                   <div className="col d-flex pt-2">
                     <div className=" mon-thurBox pe-5">
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="monday"
-                          name="monday"
-                        />
-                        <label htmlFor="monday">Monday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="monday"
+                            name="monday"
+                          />
+                          Monday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="tuesday"
-                          name="tuesday"
-                        />
-                        <label htmlFor="tuesday">Tuesday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="tuesday"
+                            name="tuesday"
+                          />
+                          Tuesday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="wednesday"
-                          name="wednesday"
-                        />
-                        <label htmlFor="wednesday">Wednesday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="wednesday"
+                            name="wednesday"
+                          />
+                          Wednesday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="thursday"
-                          name="thursday"
-                        />
-                        <label htmlFor="thursday">Thursday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="thursday"
+                            name="thursday"
+                          />
+                          Thursday
+                        </label>
                       </div>
                     </div>
                     <div className="fri-sunBox">
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="friday"
-                          name="friday"
-                        />
-                        <label htmlFor="friday">Friday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="friday"
+                            name="friday"
+                          />
+                          Friday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="saturday"
-                          name="saturday"
-                        />
-                        <label htmlFor="saturday">Saturday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="saturday"
+                            name="saturday"
+                          />
+                          Saturday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="sunday"
-                          name="sunday"
-                        />
-                        <label htmlFor="sunday">Sunday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="sunday"
+                            name="sunday"
+                          />
+                          Sunday
+                        </label>
                       </div>
                     </div>
                   </div>
