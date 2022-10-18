@@ -210,7 +210,30 @@ function Input() {
                 </div>
                 <div className="row mt-4 submitReset">
                   <div className="col-6 ">
-                    <button className=" btn btn-info px-3 me-3 " type="submit">
+                    <button
+                      type="submit"
+                      onSubmit={actions.postProgram(
+                        formik.values.programName,
+                        formik.values.programDescription,
+                        formik.values.programBarTxt,
+                        formik.values.programStartTime,
+                        formik.values.programEndTime,
+                        formik.values.monday,
+                        formik.values.tuesday,
+                        formik.values.wednesday,
+                        formik.values.thursday,
+                        formik.values.friday,
+                        formik.values.saturday,
+                        formik.values.sunday,
+                        formik.values.programThurStartTime,
+                        formik.values.programThurEndTime,
+                        formik.values.programThurBarTxt,
+                        formik.values.programSatStartTime,
+                        formik.values.programSatEndTime,
+                        formik.values.programSatBarTxt
+                      )}
+                      className=" btn btn-info px-3 me-3 "
+                    >
                       Submit
                     </button>
                     <button className=" btn btn-secondary px-3 " type="reset">
