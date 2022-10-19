@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("Error loading message from backend", error);
         }
       },
-      postProgram: (
+      postProgram: async (
         name,
         description,
         prog_bar_txt,
@@ -55,37 +55,42 @@ const getState = ({ getStore, getActions, setStore }) => {
         sat_end_time,
         prog_bar_sat_txt
       ) => {
-        fetch(`${process.env.BACKEND_URL}/api/newProgram`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: name,
-            description: description,
-            prog_bar_txt: prog_bar_txt,
-            start_time: start_time,
-            end_time: end_time,
-            monday: monday,
-            tuesday: tuesday,
-            wednesday: wednesday,
-            thursday: thursday,
-            friday: friday,
-            saturday: saturday,
-            sunday: sunday,
-            thur_start_time: thur_start_time,
-            thur_end_time: thur_end_time,
-            prog_bar_thur_txt: prog_bar_thur_txt,
-            sat_start_time: sat_start_time,
-            sat_end_time: sat_end_time,
-            prog_bar_sat_txt: prog_bar_sat_txt,
-          }),
-        })
-          .then((result) => result.json())
-          .then((data) => {
-            console.log("new program", data);
-            setStore({
-              programs: data,
-            });
-          });
+        try {
+          const resp = await fetch(
+            `${process.env.BACKEND_URL}/api/newProgram`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                name: name,
+                description: description,
+                prog_bar_txt: prog_bar_txt,
+                start_time: start_time,
+                end_time: end_time,
+                monday: monday,
+                tuesday: tuesday,
+                wednesday: wednesday,
+                thursday: thursday,
+                friday: friday,
+                saturday: saturday,
+                sunday: sunday,
+                thur_start_time: thur_start_time,
+                thur_end_time: thur_end_time,
+                prog_bar_thur_txt: prog_bar_thur_txt,
+                sat_start_time: sat_start_time,
+                sat_end_time: sat_end_time,
+                prog_bar_sat_txt: prog_bar_sat_txt,
+              }),
+            }
+          );
+          const data = await resp.json();
+          console.log("data new program", data);
+          setStore({ programs: data });
+          // don't forget to return something, that is how the async resolves
+          return data;
+        } catch (error) {
+          console.log("Error loading message from backend", error);
+        }
       },
     },
   };

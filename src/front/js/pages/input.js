@@ -12,7 +12,7 @@ const validate = Yup.object({
   programStartTime: Yup.string()
     .matches(
       /^(?<!\S)1[0-2][AP][\M]$(?!\S)|(?<!\S)[1-9][AP][\M]$(?!\S)/,
-      "format must be the correct hour followed by AM/PM all caps, no spaces"
+      "format must be the correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
     )
     .required("This field is requried"),
   programEndTime: Yup.string()
@@ -212,26 +212,29 @@ function Input() {
                   <div className="col-6 ">
                     <button
                       type="submit"
-                      onSubmit={actions.postProgram(
-                        formik.values.programName,
-                        formik.values.programDescription,
-                        formik.values.programBarTxt,
-                        formik.values.programStartTime,
-                        formik.values.programEndTime,
-                        formik.values.monday,
-                        formik.values.tuesday,
-                        formik.values.wednesday,
-                        formik.values.thursday,
-                        formik.values.friday,
-                        formik.values.saturday,
-                        formik.values.sunday,
-                        formik.values.programThurStartTime,
-                        formik.values.programThurEndTime,
-                        formik.values.programThurBarTxt,
-                        formik.values.programSatStartTime,
-                        formik.values.programSatEndTime,
-                        formik.values.programSatBarTxt
-                      )}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        actions.postProgram(
+                          formik.values.programName,
+                          formik.values.programDescription,
+                          formik.values.programBarTxt,
+                          formik.values.programStartTime,
+                          formik.values.programEndTime,
+                          formik.values.monday,
+                          formik.values.tuesday,
+                          formik.values.wednesday,
+                          formik.values.thursday,
+                          formik.values.friday,
+                          formik.values.saturday,
+                          formik.values.sunday,
+                          formik.values.programThurStartTime,
+                          formik.values.programThurEndTime,
+                          formik.values.programThurBarTxt,
+                          formik.values.programSatStartTime,
+                          formik.values.programSatEndTime,
+                          formik.values.programSatBarTxt
+                        );
+                      }}
                       className=" btn btn-info px-3 me-3 "
                     >
                       Submit
