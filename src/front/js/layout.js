@@ -6,7 +6,7 @@ import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 
 import { Footer } from "./component/footer";
-import Input from "./component/input";
+import Input from "./pages/input";
 
 //create your first component
 const Layout = () => {
