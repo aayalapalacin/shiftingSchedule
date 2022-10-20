@@ -709,7 +709,8 @@ function ProgramDivs() {
   //     </div>
   //   );
   // })}
-  const ProgramProgBarText = (day) => {
+
+ /*  const ProgramProgBarText = (day) => {
     let dayOfTheWeek = day.day;
     console.log(dayOfTheWeek);
     let programToRender = store.programs?.map((program, index) => {
@@ -770,7 +771,7 @@ function ProgramDivs() {
       }
     });
     return programToRender;
-  };
+  }; */
   return (
     <div>
       <ul className="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
@@ -883,9 +884,10 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "67%", left: "40%" }}
+            style={{ top: "50.5%", left: "27%" }}
           >
-          <ProgramProgBarText day="monday" />
+            <div> {store.programs[0]?store.programs[0].prog_bar_txt:<>Loading...</>} </div>
+{/*           <ProgramProgBarText day="monday" /> */}
 {/*             test monday */}
           </div>
         </div>
@@ -898,9 +900,10 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "67%", left: "45%" }}
+            style={{ top: "50.5%", left: "27%" }}
           >
-          <ProgramProgBarText day="tuesday" />
+            <div> {store.programs[0]?store.programs[0].prog_bar_txt:<>Loading...</>} </div>
+{/*           <ProgramProgBarText day="tuesday" /> */}
 {/*             test tuesday */}
           </div>
         </div>
@@ -915,7 +918,7 @@ function ProgramDivs() {
             className="position-absolute program-wednesday"
             style={{ top: "64.2%", left: "31.3%", width: 7.3+"em", height: 2.7+"em" }}
           >
-          <ProgramProgBarText day="wednesday" />
+{/*           <ProgramProgBarText day="wednesday" /> */}
 {/*             test wednesday */}
           </div>
         </div>
@@ -928,9 +931,10 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "67%", left: "45%" }}
+            style={{ top: "50.5%", left: "27%" }}
           >
-            <ProgramProgBarText day="thursday" />
+          <div> {store.programs[0]?store.programs[0].prog_bar_thur_txt:<>Loading...</>} </div>
+{/*             <ProgramProgBarText day="thursday" /> */}
 {/*             test thursday */}
           </div>
         </div>
@@ -943,9 +947,10 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "67%", left: "40%" }}
+            style={{ top: "50.5%", left: "27%" }}
           >
-            <ProgramProgBarText day="friday" />
+        <div> {store.programs[0]?store.programs[0].prog_bar_txt:<>Loading...</>} </div>
+{/*             <ProgramProgBarText day="friday" /> */}
 {/*             test friday */}
           </div>
         </div>
@@ -958,9 +963,10 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "67%", left: "45%" }}
+            style={{ top: "50.5%", left: "27%" }}
           >
-            <ProgramProgBarText day="saturday"/>
+          <div> {store.programs[0]?store.programs[0].prog_bar_sat_txt:<>Loading...</>} </div>
+{/*             <ProgramProgBarText day="saturday"/> */}
             {/*             test saturday */}
           </div>
         </div>
@@ -975,7 +981,7 @@ function ProgramDivs() {
             className="position-absolute"
             style={{ top: "67%", left: "40%" }}
           >
-            <ProgramProgBarText day="sunday" />
+{/*             <ProgramProgBarText day="sunday" /> */}
 {/*             test sunday */}
           </div>
         </div>
