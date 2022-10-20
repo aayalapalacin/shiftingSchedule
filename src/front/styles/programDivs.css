@@ -1,6 +1,49 @@
-.program-wednesday{
+/* .program-wednesday{
     font-size: 12px;
     padding: 5px;
     background-color: #48B1BA;
     border-radius: 4px;
+} */
+
+.onsite{
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #4287f5;
+    color:#fff;
+}
+.curbside{
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #eb4034;
+    color:#fff;
+}
+.community{
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #1E53FA;
+    color:#fff;
+}
+.mobile{
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 4px;
+    color:#fff;
+    background-color: #48B1BA;
+}
+.additional{
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 4px;
+    color:#fff;
+    background-color: #F2770C; 
+}
+.fresh{
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 4px;
+    color:#fff;
+    background-color: #fbb442;
 }

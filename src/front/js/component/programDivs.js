@@ -774,7 +774,11 @@ function ProgramDivs() {
   }; */
   return (
     <div>
-      <ul className="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+      <ul
+        className="nav nav-pills mb-3 nav-justified"
+        id="pills-tab"
+        role="tablist"
+      >
         <li className="nav-item" role="presentation">
           <button
             className="nav-link active ms-1"
@@ -884,11 +888,65 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "50.5%", left: "27%" }}
+            style={{ top: "50%", left: "24.8%", width: "273px" }}
           >
-            <div> {store.programs[0]?store.programs[0].prog_bar_txt:<>Loading...</>} </div>
-{/*           <ProgramProgBarText day="monday" /> */}
-{/*             test monday */}
+            <div className="onsite">
+              {store.programs[0] ? (
+                store.programs[0].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+            {/*           <ProgramProgBarText day="monday" /> */}
+            {/*             test monday */}
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "54.7%", left: "43.3%", width: "85px" }}
+          >
+            <div className="curbside">
+              {store.programs[1] ? (
+                store.programs[1].name
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "59.7%", left: "24.8%", width: "273px" }}
+          >
+            <div className="community">
+              {store.programs[2] ? (
+                store.programs[2].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "69.4%", left: "3.4%", width: "600px" }}
+          >
+            <div className="additional">
+              {store.programs[4] ? (
+                store.programs[4].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "74.2%", left: "24.8%", width: "273px" }}
+          >
+            <div className="fresh">
+              {store.programs[5] ? (
+                store.programs[5].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
           </div>
         </div>
         <div
@@ -900,11 +958,70 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "50.5%", left: "27%" }}
+            style={{ top: "50%", left: "24.8%", width: "273px" }}
           >
-            <div> {store.programs[0]?store.programs[0].prog_bar_txt:<>Loading...</>} </div>
-{/*           <ProgramProgBarText day="tuesday" /> */}
-{/*             test tuesday */}
+            <div className="onsite">
+              {store.programs[0] ? (
+                store.programs[0].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+            {/*           <ProgramProgBarText day="tuesday" /> */}
+            {/*             test tuesday */}
+          </div>
+          <div
+            className="position-absolute"
+            style={{
+              top: "54.7%",
+              left: "43.3%",
+              width: "85px",
+              maxHeight: "10px",
+            }}
+          >
+            <div className="curbside">
+              {store.programs[1] ? (
+                store.programs[1].name
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "59.7%", left: "24.8%", width: "273px" }}
+          >
+            <div className="community">
+              {store.programs[2] ? (
+                store.programs[2].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "69.4%", left: "3.4%", width: "600px" }}
+          >
+            <div className="additional">
+              {store.programs[4] ? (
+                store.programs[4].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "74.2%", left: "24.8%", width: "273px" }}
+          >
+            <div className="fresh">
+              {store.programs[5] ? (
+                store.programs[5].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
           </div>
         </div>
         <div
@@ -916,10 +1033,17 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute program-wednesday"
-            style={{ top: "64.2%", left: "31.3%", width: 7.3+"em", height: 2.7+"em" }}
+            style={{ top: "64.5%", left: "31.3%", width: "85.2px" }}
           >
-{/*           <ProgramProgBarText day="wednesday" /> */}
-{/*             test wednesday */}
+            <div className="mobile">
+              {store.programs[3] ? (
+                store.programs[3].name
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+            {/*           <ProgramProgBarText day="wednesday" /> */}
+            {/*             test wednesday */}
           </div>
         </div>
         <div
@@ -931,11 +1055,29 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "50.5%", left: "27%" }}
+            style={{ top: "50%", left: "24.8%", width: "639px" }}
           >
-          <div> {store.programs[0]?store.programs[0].prog_bar_thur_txt:<>Loading...</>} </div>
-{/*             <ProgramProgBarText day="thursday" /> */}
-{/*             test thursday */}
+            <div className="onsite">
+              {store.programs[0] ? (
+                store.programs[0].prog_bar_thur_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+            {/*             <ProgramProgBarText day="thursday" /> */}
+            {/*             test thursday */}
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "54.7%", left: "49.3%", width: "310px" }}
+          >
+            <div className="curbside">
+              {store.programs[1] ? (
+                store.programs[1].prog_bar_thur_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
           </div>
         </div>
         <div
@@ -947,11 +1089,65 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "50.5%", left: "27%" }}
+            style={{ top: "50%", left: "24.8%", width: "273px" }}
           >
-        <div> {store.programs[0]?store.programs[0].prog_bar_txt:<>Loading...</>} </div>
-{/*             <ProgramProgBarText day="friday" /> */}
-{/*             test friday */}
+            <div className="onsite">
+              {store.programs[0] ? (
+                store.programs[0].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+            {/*             <ProgramProgBarText day="friday" /> */}
+            {/*             test friday */}
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "54.7%", left: "43.3%", width: "85px" }}
+          >
+            <div className="curbside">
+              {store.programs[1] ? (
+                store.programs[1].name
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "59.7%", left: "24.8%", width: "273px" }}
+          >
+            <div className="community">
+              {store.programs[2] ? (
+                store.programs[2].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "69.4%", left: "3.4%", width: "600px" }}
+          >
+            <div className="additional">
+              {store.programs[4] ? (
+                store.programs[4].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "74.2%", left: "24.8%", width: "273px" }}
+          >
+            <div className="fresh">
+              {store.programs[5] ? (
+                store.programs[5].prog_bar_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
           </div>
         </div>
         <div
@@ -963,11 +1159,29 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "50.5%", left: "27%" }}
+            style={{ top: "50%", left: "24.8%", width: "639px" }}
           >
-          <div> {store.programs[0]?store.programs[0].prog_bar_sat_txt:<>Loading...</>} </div>
-{/*             <ProgramProgBarText day="saturday"/> */}
+            <div className="onsite">
+              {store.programs[0] ? (
+                store.programs[0].prog_bar_sat_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+            {/*             <ProgramProgBarText day="saturday"/> */}
             {/*             test saturday */}
+          </div>
+          <div
+            className="position-absolute"
+            style={{ top: "54.7%", left: "49.3%", width: "310px" }}
+          >
+            <div className="curbside">
+              {store.programs[1] ? (
+                store.programs[1].prog_bar_sat_txt
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
           </div>
         </div>
         <div
@@ -979,10 +1193,17 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "67%", left: "40%" }}
+            style={{ top: "54.7%", left: "43.3%", width: "85px" }}
           >
-{/*             <ProgramProgBarText day="sunday" /> */}
-{/*             test sunday */}
+            <div className="curbside">
+              {store.programs[1] ? (
+                store.programs[1].name
+              ) : (
+                <>Loading...</>
+              )}
+            </div>
+            {/*             <ProgramProgBarText day="sunday" /> */}
+            {/*             test sunday */}
           </div>
         </div>
       </div>
