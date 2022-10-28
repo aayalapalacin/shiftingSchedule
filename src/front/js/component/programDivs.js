@@ -710,7 +710,9 @@ function ProgramDivs() {
   //   );
   // })}
 
- /*  const ProgramProgBarText = (day) => {
+/**
+ * Funtion to map from nav pill by day
+ * const ProgramProgBarText = (day) => {
     let dayOfTheWeek = day.day;
     console.log(dayOfTheWeek);
     let programToRender = store.programs?.map((program, index) => {
@@ -771,7 +773,23 @@ function ProgramDivs() {
       }
     });
     return programToRender;
-  }; */
+  };
+*/ 
+let curbStyle=""
+if(store.programs[1]){
+  if(store.programs[1].thursday===true){
+    curbStyle={
+      top: 54.7+"%", 
+      left: 43.3+"%", 
+      width: 85+"px", 
+      padding: 5+"px",
+     }
+  }
+}
+  
+
+  
+ 
   return (
     <div>
       <ul
@@ -902,7 +920,11 @@ function ProgramDivs() {
           </div>
           <div
             className="position-absolute"
-            style={{ top: "54.7%", left: "43.3%", width: "85px" }}
+            style={{
+              top: "54.7%",
+              left: "43.3%",
+              width: "85px" 
+             }}
           >
             <div className="curbside">
               {store.programs[1] ? (
@@ -975,8 +997,7 @@ function ProgramDivs() {
             style={{
               top: "54.7%",
               left: "43.3%",
-              width: "85px",
-              maxHeight: "10px",
+              width: "85px"
             }}
           >
             <div className="curbside">
@@ -1069,9 +1090,13 @@ function ProgramDivs() {
           </div>
           <div
             className="position-absolute"
-            style={{ top: "54.7%", left: "49.3%", width: "310px" }}
+            style={{ 
+            top: "54.7%", 
+            left: "55%", 
+            width: "220px"
+            }}
           >
-            <div className="curbside">
+            <div className="curbsideThurAndSat">
               {store.programs[1] ? (
                 store.programs[1].prog_bar_thur_txt
               ) : (
@@ -1173,9 +1198,9 @@ function ProgramDivs() {
           </div>
           <div
             className="position-absolute"
-            style={{ top: "54.7%", left: "49.3%", width: "310px" }}
+            style={{ top: "54.7%", left: "55%", width: "220px" }}
           >
-            <div className="curbside">
+            <div className="curbsideThurAndSat">
               {store.programs[1] ? (
                 store.programs[1].prog_bar_sat_txt
               ) : (
