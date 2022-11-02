@@ -1,5 +1,6 @@
-import React from "react";
-import { Formik, Form } from "formik";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+import { Formik, Form, Field } from "formik";
 import TextField from "../component/textField";
 import * as Yup from "yup";
 import "../../styles/input.css";
@@ -11,7 +12,7 @@ const validate = Yup.object({
   programStartTime: Yup.string()
     .matches(
       /^(?<!\S)1[0-2][AP][\M]$(?!\S)|(?<!\S)[1-9][AP][\M]$(?!\S)/,
-      "format must be the correct hour followed by AM/PM all caps, no spaces"
+      "format must be the correct hour followed by AM/PM all caps, no spaces: 12PM, 8AM, etc"
     )
     .required("This field is requried"),
   programEndTime: Yup.string()
@@ -47,6 +48,7 @@ const validate = Yup.object({
 });
 
 function Input() {
+  const { store, actions } = useContext(Context);
   return (
     <Formik
       initialValues={{
@@ -61,11 +63,19 @@ function Input() {
         programSatStartTime: "",
         programSatEndTime: "",
         programSatBarTxt: "",
+        monday: false,
+        tuesday: false,
+        wednesday: false,
+        thursday: false,
+        friday: false,
+        saturday: false,
+        sunday: false,
       }}
       validationSchema={validate}
     >
       {(formik) => (
         <div className="mx-4">
+          {console.log("test", formik.values)}
           <div className="row mb-2">
             <div className="col-8">
               <h1 className="my-4  font-weight-bold display-5 ">
@@ -117,76 +127,116 @@ function Input() {
                   <div className="col d-flex pt-2">
                     <div className=" mon-thurBox pe-5">
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="monday"
-                          name="monday"
-                        />
-                        <label htmlFor="monday">Monday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="monday"
+                            name="monday"
+                          />
+                          Monday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="tuesday"
-                          name="tuesday"
-                        />
-                        <label htmlFor="tuesday">Tuesday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="tuesday"
+                            name="tuesday"
+                          />
+                          Tuesday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="wednesday"
-                          name="wednesday"
-                        />
-                        <label htmlFor="wednesday">Wednesday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="wednesday"
+                            name="wednesday"
+                          />
+                          Wednesday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="thursday"
-                          name="thursday"
-                        />
-                        <label htmlFor="thursday">Thursday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="thursday"
+                            name="thursday"
+                          />
+                          Thursday
+                        </label>
                       </div>
                     </div>
                     <div className="fri-sunBox">
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="friday"
-                          name="friday"
-                        />
-                        <label htmlFor="friday">Friday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="friday"
+                            name="friday"
+                          />
+                          Friday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="saturday"
-                          name="saturday"
-                        />
-                        <label htmlFor="saturday">Saturday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="saturday"
+                            name="saturday"
+                          />
+                          Saturday
+                        </label>
                       </div>
                       <div className="pb-1 fs-5">
-                        <input
-                          className="me-2"
-                          type="checkbox"
-                          id="sunday"
-                          name="sunday"
-                        />
-                        <label htmlFor="sunday">Sunday</label>
+                        <label>
+                          <Field
+                            className="me-2"
+                            type="checkbox"
+                            id="sunday"
+                            name="sunday"
+                          />
+                          Sunday
+                        </label>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="row mt-4 submitReset">
                   <div className="col-6 ">
-                    <button className=" btn btn-info px-3 me-3 " type="submit">
+                    <button
+                      type="submit"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        actions.postProgram(
+                          formik.values.programName,
+                          formik.values.programDescription,
+                          formik.values.programBarTxt,
+                          formik.values.programStartTime,
+                          formik.values.programEndTime,
+                          formik.values.monday,
+                          formik.values.tuesday,
+                          formik.values.wednesday,
+                          formik.values.thursday,
+                          formik.values.friday,
+                          formik.values.saturday,
+                          formik.values.sunday,
+                          formik.values.programThurStartTime,
+                          formik.values.programThurEndTime,
+                          formik.values.programThurBarTxt,
+                          formik.values.programSatStartTime,
+                          formik.values.programSatEndTime,
+                          formik.values.programSatBarTxt
+                        );
+                      }}
+                      className=" btn btn-info px-3 me-3 "
+                    >
                       Submit
                     </button>
                     <button className=" btn btn-secondary px-3 " type="reset">
