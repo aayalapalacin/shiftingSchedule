@@ -206,6 +206,16 @@ function ProgramDivs() {
           aria-labelledby="pills-monday-tab"
           tabIndex="0"
         >
+          {store.programs.map((programItem, index) => {
+            if (programItem.monday) {
+              let classNameIdentifier = programItem.name.split(" ").pop();
+              const totalHoursItem = store.totalHours.filter(
+                (totalHoursItem) => programItem.id == totalHoursItem.id
+              );
+
+              return <div key={index}> {programItem.name} </div>;
+            }
+          })}
           <div
             className="position-absolute"
             style={{ top: "50%", left: "24.8%", width: "273px" }}
