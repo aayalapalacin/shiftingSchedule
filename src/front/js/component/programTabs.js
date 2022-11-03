@@ -39,7 +39,7 @@ function ProgramTabs() {
 
     return (
       <div
-      key={index}
+        key={index}
         style={color}
         className="tab-container mt-2 me-5 mb-2 d-inline-flex justify-space-around"
       >
@@ -49,7 +49,6 @@ function ProgramTabs() {
           }}
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
-          
         >
           <div className="row mt-2">
             <span className="name">{program.name}</span>
