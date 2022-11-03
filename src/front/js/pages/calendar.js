@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import "../../styles/calendar.css";
+
 function Calendar(props) {
   return (
     <div>
@@ -23,21 +25,7 @@ function Calendar(props) {
         <tbody>
           <tr>
             <th scope="row"></th>
-
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
+            <td className="cell-size"></td>
             <td></td>
             <td></td>
             <td></td>
@@ -50,20 +38,7 @@ function Calendar(props) {
           </tr>
           <tr>
             <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
+            <td className="cell-size"></td>
             <td></td>
             <td></td>
             <td></td>
@@ -76,7 +51,7 @@ function Calendar(props) {
           </tr>
           <tr>
             <th scope="row"></th>
-            <td></td>
+            <td className="cell-size"></td>
             <td></td>
             <td></td>
             <td></td>
@@ -89,7 +64,33 @@ function Calendar(props) {
           </tr>
           <tr>
             <th scope="row"></th>
+            <td className="cell-size"></td>
             <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td className="cell-size"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td className="cell-size"></td>
             <td></td>
             <td></td>
             <td></td>

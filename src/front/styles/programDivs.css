@@ -1,0 +1,54 @@
+/* .program-wednesday{
+    font-size: 12px;
+    padding: 5px;
+    background-color: #48B1BA;
+    border-radius: 4px;
+} */
+
+.onsite {
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #4287f5;
+  color: #fff;
+}
+.curbside {
+  font-size: 10px;
+  border-radius: 4px;
+  background-color: #eb4034;
+  color: #fff;
+}
+.curbsideThurAndSat{
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #eb4034;
+    color: #fff;
+    padding: 6px;
+}
+.community {
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #1e53fa;
+  color: #fff;
+}
+.mobile {
+  font-size: 10px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #48b1ba;
+}
+.additional {
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #f2770c;
+}
+.fresh {
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #fbb442;
+}
