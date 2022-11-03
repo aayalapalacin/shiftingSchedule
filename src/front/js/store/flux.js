@@ -3,6 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       programs: [],
       totalHours: [],
+      totalThurHours: [],
+      totalSatHours: [],
     },
     actions: {
       getProgram: async () => {
@@ -78,6 +80,12 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       addTotalHours: (data) => {
         setStore({ totalHours: data });
+      },
+      addTotalThurHours: (data) => {
+        setStore({ totalThurHours: data });
+      },
+      addTotalSatHours: (data) => {
+        setStore({ totalSatHours: data });
       },
     },
   };

@@ -671,6 +671,22 @@ function TotalHours() {
       actions.addTotalHours(totalHours);
     }
   }, [totalHours]);
+
+  useEffect(() => {
+    if (totalThurHours.length == store.totalThurHours.length) {
+      stop;
+    } else if (totalThurHours.length > 0) {
+      actions.addTotalThurHours(totalThurHours);
+    }
+  }, [totalThurHours]);
+
+  useEffect(() => {
+    if (totalSatHours.length == store.totalSatHours.length) {
+      stop;
+    } else if (totalSatHours.length > 0) {
+      actions.addTotalSatHours(totalSatHours);
+    }
+  }, [totalSatHours]);
   console.log(store, "storey");
 
   return <div></div>;
