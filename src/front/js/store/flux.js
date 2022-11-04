@@ -11,7 +11,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log("process.env.BACKEND_URL ", process.env.BACKEND_URL);
         try {
           // fetching data from the backend
-          const resp = await fetch(process.env.BACKEND_URL + "/api/programs");
+          const resp = await fetch(
+            "https://3001-aayalapalac-shiftingsch-vg7ka5dv6po.ws-us74.gitpod.io/api/programs"
+          );
           const data = await resp.json();
           console.log("data", data);
           setStore({ programs: data });
@@ -43,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ) => {
         try {
           const resp = await fetch(
-            `${process.env.BACKEND_URL}/api/newProgram`,
+            "https://3001-aayalapalac-shiftingsch-vg7ka5dv6po.ws-us74.gitpod.io/api/newProgram",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

@@ -12,7 +12,7 @@ export const Home = () => {
     <div className="text-center m-5 parentDiv border border-dark">
       <TotalHours />
       <ProgramTabs />
-      <ProgramDivs />
+      {/* <ProgramDivs /> */}
       <Calendar />
     </div>
   );
