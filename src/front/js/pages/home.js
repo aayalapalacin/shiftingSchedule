@@ -9,7 +9,7 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="text-center m-5 parentDiv border border-dark">
+    <div className="text-center mx-auto my-3 parentDiv border border-dark">
       <TotalHours />
       <ProgramTabs />
       <ProgramDivs />
