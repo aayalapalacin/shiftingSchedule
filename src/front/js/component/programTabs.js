@@ -27,15 +27,15 @@ function ProgramTabs() {
       color = { backgroundColor: "#" + 1 + "E" + 53 + "FA" };
     }
 
-    let marginClick = "";
-    if (program.name.startsWith("Fresh")) {
-      marginClick = {
-        position: "relative",
-        bottom: 2 + "px",
-      };
-    } else {
-      marginClick = "mt-1";
-    }
+    // let marginClick = "";
+    // if (program.name.startsWith("Fresh")) {
+    //   marginClick = {
+    //     position: "relative",
+    //     bottom: 2 + "px",
+    //   };
+    // } else {
+    //   marginClick = "mt-1";
+    // }
 
     return (
       <div
@@ -54,7 +54,7 @@ function ProgramTabs() {
             <span className="name">{program.name}</span>
           </div>
           <div className="row">
-            <span className={marginClick}>Click for more info</span>
+            <span className="mt-1 clickFont">* Click for more info</span>
           </div>
         </div>
       </div>
