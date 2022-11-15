@@ -95,13 +95,13 @@ function ProgramDivs() {
   return (
     <div>
       <ul
-        className="nav nav-pills mb-3 nav-justified"
+        className="nav nav-pills  nav-justified"
         id="pills-tab"
         role="tablist"
       >
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link active ms-1"
+            className="nav-link active ms-1 fs-6"
             id="pills-monday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-monday"
@@ -115,7 +115,7 @@ function ProgramDivs() {
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link"
+            className="nav-link fs-6"
             id="pills-tuesday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-tuesday"
@@ -129,7 +129,7 @@ function ProgramDivs() {
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link"
+            className="nav-link fs-6"
             id="pills-wednesday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-wednesday"
@@ -143,7 +143,7 @@ function ProgramDivs() {
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link"
+            className="nav-link fs-6"
             id="pills-thursday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-thursday"
@@ -157,7 +157,7 @@ function ProgramDivs() {
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link"
+            className="nav-link fs-6"
             id="pills-friday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-friday"
@@ -171,7 +171,7 @@ function ProgramDivs() {
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link"
+            className="nav-link fs-6"
             id="pills-saturday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-saturday"
@@ -185,7 +185,7 @@ function ProgramDivs() {
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className="nav-link me-1"
+            className="nav-link fs-6  me-1"
             id="pills-sunday-tab"
             data-bs-toggle="pill"
             data-bs-target="#pills-sunday"

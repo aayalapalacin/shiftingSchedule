@@ -41,7 +41,7 @@ function ProgramTabs() {
       <div
         key={index}
         style={color}
-        className="tab-container mt-2 me-5 mb-2 d-inline-flex justify-space-around"
+        className="tab-container  me-5 mb-3 d-inline-flex justify-space-around"
       >
         <div
           onClick={() => {
