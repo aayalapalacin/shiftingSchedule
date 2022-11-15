@@ -18,13 +18,13 @@
   text-align: start;
 }
 .name {
-  font-size: 13.5px;
+  font-size: 101%;
   font-family: "Alkami";
   font-weight: bolder;
   padding-top: 0.1rem;
 }
 
 .clickFont {
-  font-size: 11px;
+  font-size: 84%;
   opacity: 68%;
 }
