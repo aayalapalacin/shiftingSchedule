@@ -10,7 +10,7 @@ function Calendar(props) {
         <thead>
           <tr>
             <th className="timeFont" scope="col ">
-              9AM-10AM
+              9AM-10AM &nbsp;
             </th>
             <th className="timeFont" scope="col ">
               10AM-11AM
@@ -19,28 +19,28 @@ function Calendar(props) {
               11AM-12PM
             </th>
             <th className="timeFont" scope="col ">
-              12PM-1PM
+              &nbsp; 12PM-1PM
             </th>
             <th className="timeFont" scope="col ">
-              1PM-2PM
+              &nbsp; 1PM-2PM &nbsp;
             </th>
             <th className="timeFont" scope="col ">
-              2PM-3PM
+              &nbsp; 2PM-3PM &nbsp;
             </th>
             <th className="timeFont" scope="col ">
-              3PM-4PM
+              &nbsp; 3PM-4PM &nbsp;
             </th>
             <th className="timeFont" scope="col ">
-              4PM-5PM
+              &nbsp; 4PM-5PM &nbsp;
             </th>
             <th className="timeFont" scope="col ">
-              5PM-6PM
+              &nbsp; 5PM-6PM &nbsp;
             </th>
             <th className="timeFont" scope="col ">
-              6PM-7PM
+              &nbsp; 6PM-7PM &nbsp;
             </th>
             <th className="timeFont" scope="col ">
-              7PM-8PM
+              &nbsp; 7PM-8PM &nbsp;
             </th>
           </tr>
         </thead>
