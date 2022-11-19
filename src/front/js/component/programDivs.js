@@ -208,7 +208,7 @@ function ProgramDivs() {
         >
           <div
             className="position-absolute"
-            style={{ top: "42%", left: "37.5%", width: "16.8%" }}
+            style={{ top: "42%", left: "35.7%", width: "16.8%" }}
           >
             <div className="onsite">
               {store.programs[0] ? (
@@ -224,7 +224,7 @@ function ProgramDivs() {
             className="position-absolute"
             style={{
               top: "48%",
-              left: "54.9%",
+              left: "53.6%",
               width: "5%",
             }}
           >
@@ -234,7 +234,7 @@ function ProgramDivs() {
           </div>
           <div
             className="position-absolute"
-            style={{ top: "54.7%", left: "37.4%", width: "17%" }}
+            style={{ top: "54.7%", left: "35.7%", width: "17%" }}
           >
             <div className="community">
               {store.programs[2] ? (
@@ -246,7 +246,7 @@ function ProgramDivs() {
           </div>
           <div
             className="position-absolute"
-            style={{ top: "66.8%", left: "17.4%", width: "37%" }}
+            style={{ top: "66.8%", left: "17.4%", width: "35.4%" }}
           >
             <div className="additional">
               {store.programs[4] ? (
@@ -258,7 +258,7 @@ function ProgramDivs() {
           </div>
           <div
             className="position-absolute"
-            style={{ top: "73.3%", left: "37.5%", width: "16.8%" }}
+            style={{ top: "73.3%", left: "35.7%", width: "17%" }}
           >
             <div className="fresh">
               {store.programs[5] ? (
