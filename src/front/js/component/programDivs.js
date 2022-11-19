@@ -1,85 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 
 import "../../styles/programDivs.css";
+import TabContent from "./tabContent";
 
 function ProgramDivs() {
   const { store, actions } = useContext(Context);
 
-  // mapping to implement once we have conditional rendering functioning
-  // {store.programs.map((item, index) => {
-  //   return (
-  //     <div key={index}>
-
-  //     </div>
-  //   );
-  // })}
-
-  /**
- * Funtion to map from nav pill by day
- * const ProgramProgBarText = (day) => {
-    let dayOfTheWeek = day.day;
-    console.log(dayOfTheWeek);
-    let programToRender = store.programs?.map((program, index) => {
-      if (
-        program[dayOfTheWeek] &&
-        program.prog_bar_sat_txt &&
-        program.prog_bar_thur_txt
-      ) {
-        return (
-          <>
-            <div key={index}>
-              <div>Text:{program.prog_bar_txt}</div>
-              <div>sat:{program.prog_bar_sat_txt}</div>
-              <div>thurs:{program.prog_bar_thur_txt}</div>
-            </div>
-          </>
-        );
-      } else if (
-        program[dayOfTheWeek] &&
-        program.prog_bar_sat_txt &&
-        !program.prog_bar_thur_txt
-      ) {
-        return (
-          <>
-            <div key={index}>
-              <div>Text:{program.prog_bar_txt}</div>
-              <div>sat:{program.prog_bar_sat_txt}</div>
-            </div>
-          </>
-        );
-      } else if (
-        program[dayOfTheWeek] &&
-        !program.prog_bar_sat_txt &&
-        program.prog_bar_thur_txt
-      ) {
-        return (
-          <>
-            <div key={index}>
-              <div>Text:{program.prog_bar_txt}</div>
-              <div>thurs:{program.prog_bar_thur_txt}</div>
-            </div>
-          </>
-        );
-      } else if (
-        program[dayOfTheWeek] &&
-        !program.prog_bar_sat_txt &&
-        !program.prog_bar_thur_txt
-      ) {
-        return (
-          <>
-            <div key={index}>
-              <div>Text:{program.prog_bar_txt}</div>
-            </div>
-          </>
-        );
-      } else {
-        return <div key={index}></div>;
-      }
-    });
-    return programToRender;
-  };
-*/
   let curbStyle = "";
   if (store.programs[1]) {
     if (store.programs[1].thursday === true) {
@@ -206,68 +133,7 @@ function ProgramDivs() {
           aria-labelledby="pills-monday-tab"
           tabIndex="0"
         >
-          <div
-            className="position-absolute"
-            style={{ top: "42%", left: "35.7%", width: "16.8%" }}
-          >
-            <div className="onsite">
-              {store.programs[0] ? (
-                store.programs[0].prog_bar_txt
-              ) : (
-                <>Loading...</>
-              )}
-            </div>
-            {/*           <ProgramProgBarText day="monday" /> */}
-            {/*             test monday */}
-          </div>
-          <div
-            className="position-absolute"
-            style={{
-              top: "48%",
-              left: "53.6%",
-              width: "5%",
-            }}
-          >
-            <div className="curbside">
-              {store.programs[1] ? store.programs[1].name : <>Loading...</>}
-            </div>
-          </div>
-          <div
-            className="position-absolute"
-            style={{ top: "54.7%", left: "35.7%", width: "17%" }}
-          >
-            <div className="community">
-              {store.programs[2] ? (
-                store.programs[2].prog_bar_txt
-              ) : (
-                <>Loading...</>
-              )}
-            </div>
-          </div>
-          <div
-            className="position-absolute"
-            style={{ top: "66.8%", left: "17.4%", width: "35.4%" }}
-          >
-            <div className="additional">
-              {store.programs[4] ? (
-                store.programs[4].prog_bar_txt
-              ) : (
-                <>Loading...</>
-              )}
-            </div>
-          </div>
-          <div
-            className="position-absolute"
-            style={{ top: "73.3%", left: "35.7%", width: "17%" }}
-          >
-            <div className="fresh">
-              {store.programs[5] ? (
-                store.programs[5].prog_bar_txt
-              ) : (
-                <>Loading...</>
-              )}
-            </div>
-          </div>
+          <TabContent />
         </div>
         <div
           className="tab-pane fade"

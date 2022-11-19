@@ -40,7 +40,7 @@ function Calendar(props) {
               &nbsp; 6PM-7PM &nbsp;
             </th>
             <th className="timeFont" scope="col ">
-              &nbsp; 7PM-8PM &nbsp;
+              7PM-8PM &nbsp;
             </th>
           </tr>
         </thead>
