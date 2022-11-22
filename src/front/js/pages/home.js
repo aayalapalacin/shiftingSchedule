@@ -5,6 +5,7 @@ import Calendar from "./calendar";
 import ProgramTabs from "../component/programTabs";
 import ProgramDivs from "../component/programDivs";
 import TotalHours from "../util/totalHours";
+import ProgramStyles from "../util/programStyles";
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
@@ -14,6 +15,7 @@ export const Home = () => {
       <ProgramTabs />
       <ProgramDivs />
       <Calendar />
+      <ProgramStyles />
     </div>
   );
 };

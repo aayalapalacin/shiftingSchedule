@@ -16,6 +16,23 @@ function TabContent() {
     (item) => item.saturday == true
   );
   const sundayPrograms = store.programs.filter((item) => item.sunday == true);
+
+  // <div className="position-absolute"
+  // style={{ top: "42%", left: "35.7%", width: "16.8%" }}>
+  //   <div className="onsite">
+  //     {store.programs[0] ? (
+  //     store.programs[0].prog_bar_txt) : (<>Loading...</>)}
+  //   </div>
+  // </div>
+  // const renderMondayPrograms = () =>{
+  //   const mondayPrograms = store.programs.filter((item) => item.monday == true);
+
+  //   for(let i=0; i<mondayPrograms.length; i++){
+  //       if(mondayPrograms[i].id == 1){
+
+  //       }
+  //   }
+  // }
   // top styles:
   // id1 = 42%
   // id2 = 48%
