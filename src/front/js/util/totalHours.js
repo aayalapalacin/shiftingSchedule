@@ -213,6 +213,18 @@ function TotalHours() {
         total_hours: totalHoursNormal,
         id: store.programs[i]?.id,
       });
+    } else {
+      let endTimeNum = parseInt(store.programs[i]?.end_time.replace(/\D/g, ""));
+      let startTimeNum = parseInt(
+        store.programs[i]?.start_time.replace(/\D/g, "")
+      );
+      let totalHoursNormal = endTimeNum - startTimeNum;
+
+      totalHours.push({
+        name: store.programs[i]?.name,
+        total_hours: totalHoursNormal,
+        id: store.programs[i]?.id,
+      });
     }
 
     // thursday program total hours:
@@ -439,6 +451,20 @@ function TotalHours() {
           total_thur_hours: totalThurHoursNormal,
           id: store.programs[i]?.id,
         });
+      } else {
+        let endTimeNum = parseInt(
+          store.programs[i]?.thur_end_time.replace(/\D/g, "")
+        );
+        let startTimeNum = parseInt(
+          store.programs[i]?.thur_start_time.replace(/\D/g, "")
+        );
+        let totalHoursNormal = endTimeNum - startTimeNum;
+
+        totalThurHours.push({
+          name: store.programs[i]?.name,
+          total_hours: totalHoursNormal,
+          id: store.programs[i]?.id,
+        });
       }
     }
     // Saturday program total hours
@@ -659,6 +685,20 @@ function TotalHours() {
         totalSatHours.push({
           name: store.programs[i]?.name,
           total_sat_hours: totalSatHoursNormal,
+          id: store.programs[i]?.id,
+        });
+      } else {
+        let endTimeNum = parseInt(
+          store.programs[i]?.sat_end_time.replace(/\D/g, "")
+        );
+        let startTimeNum = parseInt(
+          store.programs[i]?.sat_start_time.replace(/\D/g, "")
+        );
+        let totalHoursNormal = endTimeNum - startTimeNum;
+
+        totalSatHours.push({
+          name: store.programs[i]?.name,
+          total_hours: totalHoursNormal,
           id: store.programs[i]?.id,
         });
       }
