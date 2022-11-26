@@ -38,18 +38,18 @@ function ProgramStyles() {
         let totalHoursMatch = store.totalHours.filter(
           (total) => total.name == item.name
         );
-        console.log("total", totalHoursMatch, item.name);
-        // if (!item.start_time.includes("30")) {
-        //   console.log(widthHourArray, "width array");
-        //   console.log(totalHoursMatch[0], "index");
-        //   console.log(
-        //     widthHourArray[totalHoursMatch[0]?.total_hours - 1],
-        //     item.name,
-        //     "width style"
-        //   );
-        // }
+        let widthStyle = 0;
+        if (!item.start_time.includes("30")) {
+          widthStyle =
+            widthHourArray[totalHoursMatch[0]?.total_hours - 1].toString() +
+            "%";
+        }
 
-        const programObj = { name: item.name, top: topStyle };
+        const programObj = {
+          name: item.name,
+          top: topStyle,
+          width: widthStyle,
+        };
         programStylesSetup.push(programObj);
       }
     });
