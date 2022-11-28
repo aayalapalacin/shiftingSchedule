@@ -5,6 +5,7 @@ function ProgramStyles() {
   const { store, actions } = useContext(Context);
   const [programStylesObj, setProgramStylesObj] = useState([]);
   const programStylesSetup = [];
+  let leftStyles = [];
 
   let widthHourArray = [];
   for (let i = 0; i < 9; i++) {
@@ -43,7 +44,34 @@ function ProgramStyles() {
           widthStyle =
             widthHourArray[totalHoursMatch[0]?.total_hours - 1].toString() +
             "%";
+          // left styles:
+          // 9AM: 17.9% (+6/hr)
+          let startTimeArry = [
+            "9AM",
+            "10AM",
+            "11AM",
+            "12AM",
+            "1PM",
+            "2PM",
+            "3PM",
+            "4PM",
+            "5PM",
+            "6PM",
+            "7PM",
+          ];
+          if (leftStyles.length == startTimeArry.length) {
+            stop();
+          } else {
+            for (let i = 0; i < startTimeArry.length; i++) {
+              console.log(i);
+              leftStyles.push(17.9 + 6 * i);
+            }
+          }
+
+          console.log(leftStyles.length, "left length");
+          console.log(startTimeArry.length, "start time length");
         }
+        console.log(leftStyles, "left Styles");
 
         const programObj = {
           name: item.name,
