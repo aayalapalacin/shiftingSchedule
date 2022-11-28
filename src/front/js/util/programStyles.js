@@ -5,7 +5,7 @@ function ProgramStyles() {
   const { store, actions } = useContext(Context);
   const [programStylesObj, setProgramStylesObj] = useState([]);
   const programStylesSetup = [];
-  let leftStyles = [];
+  let leftStyle = "";
 
   let widthHourArray = [];
   for (let i = 0; i < 9; i++) {
@@ -44,39 +44,33 @@ function ProgramStyles() {
           widthStyle =
             widthHourArray[totalHoursMatch[0]?.total_hours - 1].toString() +
             "%";
-          // left styles:
-          // 9AM: 17.9% (+6/hr)
-          let startTimeArry = [
-            "9AM",
-            "10AM",
-            "11AM",
-            "12AM",
-            "1PM",
-            "2PM",
-            "3PM",
-            "4PM",
-            "5PM",
-            "6PM",
-            "7PM",
+          let startTimeObj = [
+            { time: "9AM", style: "17.9%" },
+            { time: "10AM", style: "23.9%" },
+            { time: "11AM", style: "29.9%" },
+            { time: "12PM", style: "35.9%" },
+            { time: "1PM", style: "41.9%" },
+            { time: "2PM", style: "47.9%" },
+            { time: "3PM", style: "53.9%" },
+            { time: "4PM", style: "59.9%" },
+            { time: "5PM", style: "65.9%" },
+            { time: "6PM", style: "71.9%" },
+            { time: "7PM", style: "77.9%" },
           ];
-          if (leftStyles.length == startTimeArry.length) {
-            stop();
-          } else {
-            for (let i = 0; i < startTimeArry.length; i++) {
-              console.log(i);
-              leftStyles.push(17.9 + 6 * i);
+          startTimeObj.forEach((startTimeItem) => {
+            if (startTimeItem.time == item.start_time) {
+              leftStyle = startTimeItem.style;
             }
+          });
+          if (item.start_time == startTimeObj.start_time) {
           }
-
-          console.log(leftStyles.length, "left length");
-          console.log(startTimeArry.length, "start time length");
         }
-        console.log(leftStyles, "left Styles");
 
         const programObj = {
           name: item.name,
           top: topStyle,
           width: widthStyle,
+          left: leftStyle,
         };
         programStylesSetup.push(programObj);
       }
